@@ -1,13 +1,36 @@
 import 'package:your_plan_fitness/Animation/FadeAnimation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'auth.dart';
 import 'package:flutter/material.dart';
+import 'ProfilePage.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
     ));
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  FirebaseUser user;
+
+  @override
+  void initState() {
+    super.initState();
+    signOutGoogle();
+  }
+
+  void googleClick() {
+    signInWithGoogle().then((user) => {
+          this.user = user,
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ProfilePage()))
+        });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -197,19 +220,23 @@ class HomePage extends StatelessWidget {
                             Expanded(
                               child: FadeAnimation(
                                   1.9,
-                                  Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(50),
-                                        color: Color(0xFFDB4437)),
-                                    child: Center(
-                                      child: Text(
-                                        "Google",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
+                                  InkWell(
+                                    child: Container(
+                                      height: 50,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          color: Color(0xFFDB4437)),
+                                      child: Center(
+                                        child: Text(
+                                          "Google",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold),
+                                        ),
                                       ),
                                     ),
+                                    onTap: this.googleClick,
                                   )),
                             )
                           ],
