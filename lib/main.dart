@@ -1,8 +1,9 @@
 import 'package:your_plan_fitness/Animation/FadeAnimation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:your_plan_fitness/NavController.dart';
 import 'auth.dart';
 import 'package:flutter/material.dart';
-import 'ProfilePage.dart';
+import 'NavController.dart';
 
 void main() => runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     signInWithGoogle().then((user) => {
           this.user = user,
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ProfilePage()))
+              context, MaterialPageRoute(builder: (context) => NavController()))
         });
   }
 
