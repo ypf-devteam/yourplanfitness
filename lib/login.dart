@@ -1,7 +1,7 @@
 import 'package:your_plan_fitness/Animation/FadeAnimation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:your_plan_fitness/NavController.dart';
-import 'Auth.dart';
+import 'auth.dart';
 import 'package:flutter/material.dart';
 import 'NavController.dart';
 
