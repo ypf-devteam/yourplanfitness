@@ -1,6 +1,9 @@
 import 'package:your_plan_fitness/Animation/FadeAnimation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:your_plan_fitness/NavController.dart';
+import 'auth.dart';
 import 'package:flutter/material.dart';
+import 'NavController.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -8,7 +11,23 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  FirebaseUser user;
+  // dynamic _userData;
+
   @override
+  void initState() {
+    super.initState();
+    signOutGoogle();
+  }
+
+  void googleClick() {
+    signInWithGoogle().then((user) => {
+          this.user = user,
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => NavController()))
+        });
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -183,19 +202,28 @@ class _LoginState extends State<Login> {
                             Expanded(
                               child: FadeAnimation(
                                   1.8,
-                                  Container(
-                                    height: 50,
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(50),
-                                        color: Color(0xFF4267B2)),
-                                    child: Center(
-                                      child: Text(
-                                        "Facebook",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
+                                  Material(
+                                    child: Ink(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                            color: Color(0xFF4267B2)),
+                                        child: InkWell(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                            onTap: () {},
+                                            child: Container(
+                                              height: 50,
+                                              child: Center(
+                                                child: Text(
+                                                  "Facebook",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              ),
+                                            ))),
                                   )),
                             ),
                             SizedBox(
@@ -205,28 +233,29 @@ class _LoginState extends State<Login> {
                               child: FadeAnimation(
                                   1.9,
                                   Material(
-                                      child: Ink(
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              color: Color(0xFFDB4437)),
-                                          child: InkWell(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                              onTap: () {},
-                                              child: Container(
-                                                height: 50,
-                                                child: Center(
-                                                  child: Text(
-                                                    "Google",
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
+                                    child: Ink(
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                            color: Color(0xFFDB4437)),
+                                        child: InkWell(
+                                            borderRadius:
+                                                BorderRadius.circular(50),
+                                            onTap: this.googleClick,
+                                            child: Container(
+                                              height: 50,
+                                              child: Center(
+                                                child: Text(
+                                                  "Google",
+                                                  style: TextStyle(
+                                                      color: Colors.white,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
-                                              ))))),
-                            ),
+                                              ),
+                                            ))),
+                                  )),
+                            )
                           ],
                         )
                       ],
