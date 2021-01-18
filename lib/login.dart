@@ -12,7 +12,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   FirebaseUser user;
-  dynamic _userData;
+  // dynamic _userData;
 
   @override
   void initState() {
