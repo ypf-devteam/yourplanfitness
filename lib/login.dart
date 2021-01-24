@@ -4,6 +4,7 @@ import 'package:your_plan_fitness/NavController.dart';
 import 'auth.dart';
 import 'package:flutter/material.dart';
 import 'NavController.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -12,6 +13,10 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   FirebaseUser user;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  Map<String, dynamic> _userData;
+  AccessToken _accessToken;
+  bool _checking = true;
   // dynamic _userData;
 
   @override
