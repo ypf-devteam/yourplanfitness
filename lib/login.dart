@@ -1,6 +1,7 @@
 import 'package:your_plan_fitness/Animation/FadeAnimation.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:your_plan_fitness/NavController.dart';
+import 'package:your_plan_fitness/SignUp.dart';
 import 'auth.dart';
 import 'package:flutter/material.dart';
 import 'NavController.dart';
@@ -12,6 +13,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   FirebaseUser user;
+  String email, password;
   // dynamic _userData;
 
   @override
@@ -20,12 +22,24 @@ class _LoginState extends State<Login> {
     signOutGoogle();
   }
 
+  void loginClick() {
+    loginWithEmail(email, password).then((user) => {
+          this.user = user,
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => NavController()))
+        });
+  }
+
   void googleClick() {
     signInWithGoogle().then((user) => {
           this.user = user,
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => NavController()))
         });
+  }
+
+  void gotoSignUp() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
   }
 
   Widget build(BuildContext context) {
@@ -116,6 +130,9 @@ class _LoginState extends State<Login> {
                                           hintStyle:
                                               TextStyle(color: Colors.grey),
                                           border: InputBorder.none),
+                                      onChanged: (input) {
+                                        email = input.trim();
+                                      },
                                     ),
                                   ),
                                   Container(
@@ -130,6 +147,10 @@ class _LoginState extends State<Login> {
                                           hintStyle:
                                               TextStyle(color: Colors.grey),
                                           border: InputBorder.none),
+                                      obscureText: true,
+                                      onChanged: (input) {
+                                        password = input.trim();
+                                      },
                                     ),
                                   ),
                                 ],
@@ -140,10 +161,12 @@ class _LoginState extends State<Login> {
                         ),
                         FadeAnimation(
                             1.5,
-                            Text(
-                              "Don't have an account? Sign up!",
-                              style: TextStyle(color: Colors.grey),
-                            )),
+                            FlatButton(
+                                onPressed: this.gotoSignUp,
+                                child: Text(
+                                  "Don't have an account? Sign up!",
+                                  style: TextStyle(color: Colors.grey),
+                                ))),
                         SizedBox(
                           height: 15,
                         ),
@@ -171,7 +194,7 @@ class _LoginState extends State<Login> {
                                             ])),
                                     child: InkWell(
                                         borderRadius: BorderRadius.circular(50),
-                                        onTap: () {},
+                                        onTap: this.loginClick,
                                         child: Container(
                                           height: 50,
                                           margin: EdgeInsets.symmetric(
@@ -241,7 +264,7 @@ class _LoginState extends State<Login> {
                                         child: InkWell(
                                             borderRadius:
                                                 BorderRadius.circular(50),
-                                            onTap: this.googleClick,
+                                            onTap: () {},
                                             child: Container(
                                               height: 50,
                                               child: Center(

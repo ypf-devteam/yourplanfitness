@@ -28,3 +28,34 @@ Future<FirebaseUser> signInWithGoogle() async {
 void signOutGoogle() async {
   await googleSignIn.signOut();
 }
+
+Future<FirebaseUser> signUpWithEmail(email, password) async {
+  await _auth.createUserWithEmailAndPassword(email: email, password: password);
+  //have something that checks if creating a user with email and password was successful
+
+  final AuthResult authResult =
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+  final FirebaseUser user = authResult.user;
+
+  assert(!user.isAnonymous);
+  assert(await user.getIdToken() != null);
+
+  final FirebaseUser currentUser = await _auth.currentUser();
+  assert(currentUser.uid == user.uid);
+
+  return user;
+}
+
+Future<FirebaseUser> loginWithEmail(email, password) async {
+  final AuthResult authResult =
+      await _auth.signInWithEmailAndPassword(email: email, password: password);
+  final FirebaseUser user = authResult.user;
+
+  assert(!user.isAnonymous);
+  assert(await user.getIdToken() != null);
+
+  final FirebaseUser currentUser = await _auth.currentUser();
+  assert(currentUser.uid == user.uid);
+
+  return user;
+}
