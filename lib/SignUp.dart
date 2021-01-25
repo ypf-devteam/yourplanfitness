@@ -31,30 +31,29 @@ class _SignUpState extends State<SignUp> {
         body: Container(
       width: double.infinity,
       decoration: BoxDecoration(
-          gradient: LinearGradient(begin: Alignment.topCenter, colors: [
-        Color(0xFF00BFFF),
-        Color(0xFF0BD600),
-        Color(0xFF0BD600)
-      ])),
+          image: DecorationImage(
+        image: AssetImage('assets/images/girl-barbell-squat.jpg'),
+        alignment: Alignment.topCenter,
+      )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           SizedBox(
-            height: 50,
+            height: 125,
           ),
           Padding(
             padding: EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                FadeAnimation(
-                    1,
-                    FractionallySizedBox(
-                      widthFactor: .75,
-                      child: new Image(
-                          image:
-                              AssetImage('assets/images/logo_full_text.png')),
-                    )),
+                // FadeAnimation(
+                //     1,
+                //     FractionallySizedBox(
+                //       widthFactor: .75,
+                //       child: new Image(
+                //           image:
+                //               AssetImage('assets/images/logo_full_text.png')),
+                //     )),
               ],
             ),
           ),
