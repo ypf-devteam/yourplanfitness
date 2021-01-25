@@ -13,10 +13,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   FirebaseUser user;
-  final FirebaseAuth _auth = FirebaseAuth.instance;
-  Map<String, dynamic> _userData;
-  AccessToken _accessToken;
-  bool _checking = true;
   // dynamic _userData;
 
   @override
@@ -34,51 +30,12 @@ class _LoginState extends State<Login> {
         });
   }
 
-  Future<void> fbLogin() async {
-    try {
-      // show a circular progress indicator
-      setState(() {
-        _checking = true;
-      });
-      _accessToken = await FacebookAuth.instance
-          .login(); // by the fault we request the email and the public profile
-      // get the user data
-      // by default we get the userId, email,name and picture
-      final userData = await FacebookAuth.instance.getUserData();
-      // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
-      _userData = userData;
-    } on FacebookAuthException catch (e) {
-      // if the facebook login fails
-      print(e.message); // print the error message in console
-      // check the error type
-      switch (e.errorCode) {
-        case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
-          print("You have a previous login operation in progress");
-          break;
-        case FacebookAuthErrorCode.CANCELLED:
-          print("login cancelled");
-          break;
-        case FacebookAuthErrorCode.FAILED:
-          print("login failed");
-          break;
-      }
-    } catch (e, s) {
-      // print in the logs the unknown errors
-      print(e);
-      print(s);
-    } finally {
-      // update the view
-      setState(() {
-        _checking = false;
-      });
-    }
-  }
-
-  Future<void> fbLogout() async {
-    await FacebookAuth.instance.logOut();
-    _accessToken = null;
-    _userData = null;
-    setState(() {});
+  void fbClick() {
+    fbLogin().then((user) => {
+          this.user = user,
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => NavController()))
+        });
   }
 
   Widget build(BuildContext context) {
@@ -264,7 +221,7 @@ class _LoginState extends State<Login> {
                                         child: InkWell(
                                             borderRadius:
                                                 BorderRadius.circular(50),
-                                            onTap: this.fbLogin,
+                                            onTap: this.fbClick,
                                             child: Container(
                                               height: 50,
                                               child: Center(
