@@ -52,6 +52,8 @@ flutter:
     - assets/images/logo_full_text.png
     - assets/images/logo_half_text.png
     - assets/images/logo_no_text.png
+    - assets/images/girl-barbell-squat.jpg
+    - assets/images/asian-guy-mountain-climbers.jpg
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
