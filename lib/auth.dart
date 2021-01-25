@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_login_facebook/flutter_login_facebook.dart';
+import 'package:your_plan_fitness/auth_service.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -23,6 +26,55 @@ Future<FirebaseUser> signInWithGoogle() async {
   assert(currentUser.uid == user.uid);
 
   return user;
+}
+
+Map<String, dynamic> _userData;
+AccessToken _accessToken;
+bool _checking = true;
+final authService = AuthService();
+
+Future<FirebaseUser> fbLogin() async {
+  try {
+    // show a circular progress indicator
+    _accessToken = await FacebookAuth.instance
+        .login(); // by the fault we request the email and the public profile
+    // get the user data
+    // by default we get the userId, email,name and picture
+    final userData = await FacebookAuth.instance.getUserData();
+    // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
+    final AuthCredential authCredential =
+        FacebookAuthProvider.getCredential(accessToken: _accessToken.token);
+    final result = await authService.signInWithCredentail(authCredential);
+    _userData = userData;
+  } on FacebookAuthException catch (e) {
+    // if the facebook login fails
+    print(e.message); // print the error message in console
+    // check the error type
+    switch (e.errorCode) {
+      case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
+        print("You have a previous login operation in progress");
+        break;
+      case FacebookAuthErrorCode.CANCELLED:
+        print("login cancelled");
+        break;
+      case FacebookAuthErrorCode.FAILED:
+        print("login failed");
+        break;
+    }
+  } catch (e, s) {
+    // print in the logs the unknown errors
+    print(e);
+    print(s);
+  } finally {
+    // update the view
+    print("oops");
+  }
+}
+
+Future<void> fbLogout() async {
+  await FacebookAuth.instance.logOut();
+  _accessToken = null;
+  _userData = null;
 }
 
 void signOutGoogle() async {

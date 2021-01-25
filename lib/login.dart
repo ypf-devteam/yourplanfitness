@@ -5,6 +5,7 @@ import 'package:your_plan_fitness/SignUp.dart';
 import 'auth.dart';
 import 'package:flutter/material.dart';
 import 'NavController.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class _LoginState extends State<Login> {
   void initState() {
     super.initState();
     signOutGoogle();
+    fbLogout();
   }
 
   void loginClick() {
@@ -40,6 +42,14 @@ class _LoginState extends State<Login> {
 
   void gotoSignUp() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
+  }
+
+  void fbClick() {
+    fbLogin().then((user) => {
+          this.user = user,
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => NavController()))
+        });
   }
 
   Widget build(BuildContext context) {
@@ -233,7 +243,7 @@ class _LoginState extends State<Login> {
                                         child: InkWell(
                                             borderRadius:
                                                 BorderRadius.circular(50),
-                                            onTap: () {},
+                                            onTap: this.fbClick,
                                             child: Container(
                                               height: 50,
                                               child: Center(

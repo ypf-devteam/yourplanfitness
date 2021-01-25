@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">your_plan_fitness</string>
+    <string name="facebook_app_id">412941036487864</string>
+    <string name="fb_login_protocol_scheme">fb412941036487864</string>
+</resources>
