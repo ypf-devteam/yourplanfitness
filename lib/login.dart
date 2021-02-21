@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'NavController.dart';
 import 'QuestionnairePage.dart';
 
-
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
@@ -36,8 +35,8 @@ class _LoginState extends State<Login> {
   void googleClick() {
     signInWithGoogle().then((user) => {
           this.user = user,
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => QuestionnairePage())
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => QuestionnairePage()))
         });
   }
 
