@@ -44,8 +44,16 @@ Future<FirebaseUser> fbLogin() async {
     // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
     final AuthCredential authCredential =
         FacebookAuthProvider.getCredential(accessToken: _accessToken.token);
-    final result = await authService.signInWithCredentail(authCredential);
+    final authResult = await authService.signInWithCredentail(authCredential);
+    final FirebaseUser user = authResult.user;
+    assert(!user.isAnonymous);
+    assert(await user.getIdToken() != null);
+
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(currentUser.uid == user.uid);
     _userData = userData;
+
+    return user;
   } on FacebookAuthException catch (e) {
     // if the facebook login fails
     print(e.message); // print the error message in console
