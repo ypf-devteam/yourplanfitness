@@ -5,6 +5,8 @@ import 'package:your_plan_fitness/SignUp.dart';
 import 'auth.dart';
 import 'package:flutter/material.dart';
 import 'NavController.dart';
+import 'QuestionnairePage.dart';
+
 
 class Login extends StatefulWidget {
   @override
@@ -35,7 +37,7 @@ class _LoginState extends State<Login> {
     signInWithGoogle().then((user) => {
           this.user = user,
           Navigator.push(
-              context, MaterialPageRoute(builder: (context) => NavController()))
+              context, MaterialPageRoute(builder: (context) => QuestionnairePage())
         });
   }
 
