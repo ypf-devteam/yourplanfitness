@@ -217,6 +217,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               waveType: WaveType.liquidReveal,
               liquidController: liquidController,
               ignoreUserGestureWhileAnimating: true,
+              enableLoop: false,
             ),
             Padding(
               padding: EdgeInsets.all(20),

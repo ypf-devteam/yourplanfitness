@@ -27,8 +27,8 @@ class _LoginState extends State<Login> {
   void loginClick() {
     loginWithEmail(email, password).then((user) => {
           this.user = user,
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => NavController()))
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => QuestionnairePage()))
         });
   }
 
@@ -47,8 +47,8 @@ class _LoginState extends State<Login> {
   void fbClick() {
     fbLogin().then((user) => {
           this.user = user,
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => NavController()))
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => QuestionnairePage()))
         });
   }
 

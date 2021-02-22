@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:your_plan_fitness/NavController.dart';
 import 'package:your_plan_fitness/Animation/FadeAnimation.dart';
 import 'auth.dart';
+import 'QuestionnairePage.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -18,7 +19,7 @@ class _SignUpState extends State<SignUp> {
       signUpWithEmail(email, password).then((user) => {
             this.user = user,
             Navigator.push(context,
-                MaterialPageRoute(builder: (context) => NavController()))
+                MaterialPageRoute(builder: (context) => QuestionnairePage()))
           });
     } else {
       //display a toast that says the passwords don't match
