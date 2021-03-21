@@ -1,7 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
-import 'package:customtogglebuttons/customtogglebuttons.dart';
 
 class QuestionnairePage extends StatefulWidget {
   static final style = TextStyle(
