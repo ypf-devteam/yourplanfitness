@@ -1,12 +1,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
+import 'package:customtogglebuttons/customtogglebuttons.dart';
 
 class QuestionnairePage extends StatefulWidget {
   static final style = TextStyle(
-    fontSize: 30,
+    fontSize: 20,
     fontFamily: "Billy",
-    fontWeight: FontWeight.w600,
   );
 
   @override
@@ -31,28 +31,112 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       child: Container(
         color: Colors.pink,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             Padding(
               padding: EdgeInsets.all(20.0),
             ),
-            Column(
-              children: <Widget>[
-                Text(
-                  "Welcome",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "To",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "Your Plan Fitness",
-                  style: QuestionnairePage.style,
-                ),
-              ],
+            Expanded(
+              child: Column(
+                children: <Widget>[
+                  Text(
+                    "Awesome. Now that your account is created, let's start building YourPlan.",
+                    style: QuestionnairePage.style,
+                  ),
+                  Text(
+                    "What is your main fitness goal?",
+                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
+                  ),
+                  Text(
+                    "(choose one)",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                            child: RaisedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "Gain Muscle Mass",
+                                style: TextStyle(fontSize: 30),
+                              ),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                            child: RaisedButton(
+                              onPressed: () {},
+                              child: Text("Burn Fat"),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                            child: RaisedButton(
+                              onPressed: () {},
+                              child: Text("Balanced"),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                            child: RaisedButton(
+                              onPressed: () {},
+                              child: Text("Improve Cardio"),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                            child: RaisedButton(
+                              onPressed: () {},
+                              child: Text("Improve Strength"),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            width: double.infinity,
+                            margin: EdgeInsets.fromLTRB(20, 5, 20, 0),
+                            child: RaisedButton(
+                              onPressed: () {},
+                              child: Text("Flexibility"),
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 55,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
