@@ -79,7 +79,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
                             child: RaisedButton(
                               onPressed: () {},
-                              child: Text("Burn Fat"),
+                              child: Text(
+                                "Burn Fat",
+                                style: TextStyle(fontSize: 30),
+                              ),
                               color: Colors.white,
                             ),
                           ),
@@ -90,7 +93,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
                             child: RaisedButton(
                               onPressed: () {},
-                              child: Text("Balanced"),
+                              child: Text(
+                                "Balanced",
+                                style: TextStyle(fontSize: 30),
+                              ),
                               color: Colors.white,
                             ),
                           ),
@@ -101,7 +107,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
                             child: RaisedButton(
                               onPressed: () {},
-                              child: Text("Improve Cardio"),
+                              child: Text(
+                                "Improve Cardio",
+                                style: TextStyle(fontSize: 30),
+                              ),
                               color: Colors.white,
                             ),
                           ),
@@ -112,7 +121,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
                             child: RaisedButton(
                               onPressed: () {},
-                              child: Text("Improve Strength"),
+                              child: Text(
+                                "Improve Strength",
+                                style: TextStyle(fontSize: 30),
+                              ),
                               color: Colors.white,
                             ),
                           ),
@@ -123,7 +135,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             margin: EdgeInsets.fromLTRB(20, 5, 20, 0),
                             child: RaisedButton(
                               onPressed: () {},
-                              child: Text("Flexibility"),
+                              child: Text(
+                                "Flexibility",
+                                style: TextStyle(fontSize: 30),
+                              ),
                               color: Colors.white,
                             ),
                           ),
