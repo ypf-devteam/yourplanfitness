@@ -28,7 +28,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   final pages = [
     SizedBox.expand(
       child: Container(
-        color: Colors.pink,
+        color: Colors.grey[50],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
@@ -40,14 +40,21 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
             Expanded(
               child: Column(
                 children: <Widget>[
-                  Text(
-                    "Awesome. Now that your account is created, let's start building YourPlan.",
-                    style: QuestionnairePage.style,
-                  ),
-                  Text(
-                    "What is your main fitness goal?",
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
-                  ),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                      child: Text(
+                        "Awesome. Now that your account is created, let's start building YourPlan.",
+                        textAlign: TextAlign.center,
+                        style: QuestionnairePage.style,
+                      )),
+                  Container(
+                      margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                      child: Text(
+                        "What is your main fitness goal?",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 30, fontWeight: FontWeight.w500),
+                      )),
                   Text(
                     "(choose one)",
                     style: TextStyle(fontSize: 20),
@@ -60,19 +67,34 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Gain Muscle Mass",
-                                style: TextStyle(fontSize: 30),
-                              ),
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      height: double.infinity,
+                                      child: RaisedButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Gain Muscle Masss",
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: double.infinity,
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      child: Text(
+                                        "X",
+                                        style: TextStyle(fontSize: 30),
+                                      ),
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]))),
                         Expanded(
                           child: Container(
                             width: double.infinity,
@@ -158,7 +180,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     ),
     SizedBox.expand(
       child: Container(
-        color: Colors.deepPurpleAccent,
+        color: Colors.grey[50],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -189,7 +211,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     ),
     SizedBox.expand(
       child: Container(
-        color: Colors.greenAccent,
+        color: Colors.grey[50],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -220,7 +242,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     ),
     SizedBox.expand(
       child: Container(
-        color: Colors.yellowAccent,
+        color: Colors.grey[50],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -251,7 +273,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     ),
     SizedBox.expand(
       child: Container(
-        color: Colors.redAccent,
+        color: Colors.grey[50],
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
@@ -294,7 +316,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       width: 25.0,
       child: new Center(
         child: new Material(
-          color: Colors.white,
+          color: Color(0xFF00BFFF),
           type: MaterialType.circle,
           child: new Container(
             width: 8.0 * zoom,
