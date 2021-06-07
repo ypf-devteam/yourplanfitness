@@ -76,7 +76,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                       child: RaisedButton(
                                         onPressed: () {},
                                         child: Text(
-                                          "Gain Muscle Masss",
+                                          "Gain Muscle Mass",
                                           style: TextStyle(fontSize: 30),
                                         ),
                                         color: Colors.white,
@@ -85,86 +85,179 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   ),
                                   Container(
                                     height: double.infinity,
+                                    width: 60,
                                     child: RaisedButton(
                                       onPressed: () {},
-                                      child: Text(
-                                        "X",
-                                        style: TextStyle(fontSize: 30),
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Image.asset(
+                                        'assets/images/info_icon.png',
+                                        width: 35.0,
+                                        height: 35.0,
                                       ),
                                       color: Colors.white,
                                     ),
                                   ),
                                 ]))),
                         Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Burn Fat",
-                                style: TextStyle(fontSize: 30),
-                              ),
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      height: double.infinity,
+                                      child: RaisedButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Burn Fat",
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: double.infinity,
+                                    width: 60,
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Image.asset(
+                                        'assets/images/info_icon.png',
+                                        width: 35.0,
+                                        height: 35.0,
+                                      ),
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]))),
                         Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Balanced",
-                                style: TextStyle(fontSize: 30),
-                              ),
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      height: double.infinity,
+                                      child: RaisedButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Balanced",
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: double.infinity,
+                                    width: 60,
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Image.asset(
+                                        'assets/images/info_icon.png',
+                                        width: 35.0,
+                                        height: 35.0,
+                                      ),
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]))),
                         Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Improve Cardio",
-                                style: TextStyle(fontSize: 30),
-                              ),
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      height: double.infinity,
+                                      child: RaisedButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Improve Cardio",
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: double.infinity,
+                                    width: 60,
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Image.asset(
+                                        'assets/images/info_icon.png',
+                                        width: 35.0,
+                                        height: 35.0,
+                                      ),
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]))),
                         Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Improve Strength",
-                                style: TextStyle(fontSize: 30),
-                              ),
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      height: double.infinity,
+                                      child: RaisedButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Improve Strength",
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: double.infinity,
+                                    width: 60,
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Image.asset(
+                                        'assets/images/info_icon.png',
+                                        width: 35.0,
+                                        height: 35.0,
+                                      ),
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]))),
                         Expanded(
-                          child: Container(
-                            width: double.infinity,
-                            margin: EdgeInsets.fromLTRB(20, 5, 20, 0),
-                            child: RaisedButton(
-                              onPressed: () {},
-                              child: Text(
-                                "Flexibility",
-                                style: TextStyle(fontSize: 30),
-                              ),
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                            child: Container(
+                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                                child: Row(children: <Widget>[
+                                  Expanded(
+                                    child: Container(
+                                      height: double.infinity,
+                                      child: RaisedButton(
+                                        onPressed: () {},
+                                        child: Text(
+                                          "Flexibility",
+                                          style: TextStyle(fontSize: 30),
+                                        ),
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: double.infinity,
+                                    width: 60,
+                                    child: RaisedButton(
+                                      onPressed: () {},
+                                      padding: EdgeInsets.all(0.0),
+                                      child: Image.asset(
+                                        'assets/images/info_icon.png',
+                                        width: 35.0,
+                                        height: 35.0,
+                                      ),
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ]))),
                         SizedBox(
                           height: 55,
                         ),
