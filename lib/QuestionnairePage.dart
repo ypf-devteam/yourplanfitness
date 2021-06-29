@@ -1,6 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
+import 'package:your_plan_fitness/hero_dialogue_route.dart';
+import 'package:your_plan_fitness/custom_rect_tween.dart';
+import 'package:your_plan_fitness/styles.dart';
 
 class QuestionnairePage extends StatefulWidget {
   static final style = TextStyle(
@@ -86,16 +89,24 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   Container(
                                     height: double.infinity,
                                     width: 60,
-                                    child: RaisedButton(
-                                      onPressed: () {},
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Image.asset(
-                                        'assets/images/info_icon.png',
-                                        width: 35.0,
-                                        height: 35.0,
-                                      ),
-                                      color: Colors.white,
-                                    ),
+                                    child: Builder(builder: (context) {
+                                      return RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              HeroDialogRoute(
+                                                  builder: (context) {
+                                            return const _AddTodoPopupCard();
+                                          }));
+                                        },
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Image.asset(
+                                          'assets/images/info_icon.png',
+                                          width: 35.0,
+                                          height: 35.0,
+                                        ),
+                                        color: Colors.white,
+                                      );
+                                    }),
                                   ),
                                 ]))),
                         Expanded(
@@ -456,5 +467,77 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     setState(() {
       page = lpage;
     });
+  }
+}
+
+/// Tag-value used for the add todo popup button.
+const String _heroAddTodo = 'add-todo-hero';
+
+/// {@template add_todo_popup_card}
+/// Popup card to add a new [Todo]. Should be used in conjuction with
+/// [HeroDialogRoute] to achieve the popup effect.
+///
+/// Uses a [Hero] with tag [_heroAddTodo].
+/// {@endtemplate}
+class _AddTodoPopupCard extends StatelessWidget {
+  /// {@macro add_todo_popup_card}
+  const _AddTodoPopupCard({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Hero(
+          tag: _heroAddTodo,
+          createRectTween: (begin, end) {
+            return CustomRectTween(begin: begin, end: end);
+          },
+          child: Material(
+            color: AppColors.accentColor,
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const TextField(
+                      decoration: InputDecoration(
+                        hintText: 'New todo',
+                        border: InputBorder.none,
+                      ),
+                      cursorColor: Colors.white,
+                    ),
+                    const Divider(
+                      color: Colors.white,
+                      thickness: 0.2,
+                    ),
+                    const TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Write a note',
+                        border: InputBorder.none,
+                      ),
+                      cursorColor: Colors.white,
+                      maxLines: 6,
+                    ),
+                    const Divider(
+                      color: Colors.white,
+                      thickness: 0.2,
+                    ),
+                    FlatButton(
+                      onPressed: () {},
+                      child: const Text('Add'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
