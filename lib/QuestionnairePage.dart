@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
+import 'hero_dialog_route.dart';
 
 class QuestionnairePage extends StatefulWidget {
   static final style = TextStyle(
@@ -24,7 +25,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   }
 
   //pat gay
-
+  Widget build(BuildContext context){
   final pages = [
     SizedBox.expand(
       child: Container(
@@ -87,7 +88,12 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                     height: double.infinity,
                                     width: 60,
                                     child: RaisedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        Navigator.of(context).push(
+                                            HeroDialogRoute(builder: (context) {
+                                          return const _AddTodoPopupCard();
+                                        }));
+                                      },
                                       padding: EdgeInsets.all(0.0),
                                       child: Image.asset(
                                         'assets/images/info_icon.png',
@@ -451,10 +457,76 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       ),
     );
   }
+  }
 
   pageChangeCallback(int lpage) {
     setState(() {
       page = lpage;
     });
+  }
+}
+
+const String _heroAddTodo = 'add-todo-hero';
+
+class _AddTodoPopupCard extends StatelessWidget {
+  /// {@macro add_todo_popup_card}
+  const _AddTodoPopupCard({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Hero(
+          tag: _heroAddTodo,
+          createRectTween: (begin, end) {
+            return Tween(begin: begin, end: end);
+          },
+          child: Material(
+            color: Color(0xFFef8354),
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const TextField(
+                      decoration: InputDecoration(
+                        hintText: 'New todo',
+                        border: InputBorder.none,
+                      ),
+                      cursorColor: Colors.white,
+                    ),
+                    const Divider(
+                      color: Colors.white,
+                      thickness: 0.2,
+                    ),
+                    const TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Write a note',
+                        border: InputBorder.none,
+                      ),
+                      cursorColor: Colors.white,
+                      maxLines: 6,
+                    ),
+                    const Divider(
+                      color: Colors.white,
+                      thickness: 0.2,
+                    ),
+                    FlatButton(
+                      onPressed: () {},
+                      child: const Text('Add'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
