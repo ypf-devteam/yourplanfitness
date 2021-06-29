@@ -26,6 +26,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
 
   //pat gay
   Widget build(BuildContext context) {
+    return MaterialApp(
     final pages = [
       SizedBox.expand(
         child: Container(
@@ -402,7 +403,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           ),
         ),
       ),
-    ];
+    ],
+    );
 
     Widget _buildDot(int index) {
       double selectedness = Curves.easeOut.transform(
