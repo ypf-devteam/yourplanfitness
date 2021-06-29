@@ -1,7 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
-import 'package:your_plan_fitness/hero_dialogue_route.dart';
+import 'package:your_plan_fitness/hero_dialog_route.dart';
 import 'package:your_plan_fitness/custom_rect_tween.dart';
 import 'package:your_plan_fitness/styles.dart';
 
