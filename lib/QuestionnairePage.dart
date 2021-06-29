@@ -97,6 +97,21 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   builder: (context) {
                                             return const _AddTodoPopupCard();
                                           }));
+                                          Hero(
+                                            tag: _heroAddTodo,
+                                            createRectTween: (begin, end) {
+                                              return CustomRectTween(
+                                                  begin: begin, end: end);
+                                            },
+                                            child: Material(
+                                              color: Colors.white,
+                                              elevation: 2,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32)),
+                                            ),
+                                          );
                                         },
                                         padding: EdgeInsets.all(0.0),
                                         child: Image.asset(
