@@ -1,4 +1,3 @@
-import 'dart:js';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
@@ -20,7 +19,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   int page = 0;
   LiquidController liquidController;
   UpdateType updateType;
-  bool buttonColour = false;
 
   @override
   void initState() {
