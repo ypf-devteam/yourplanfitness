@@ -1,3 +1,4 @@
+import 'dart:js';
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
@@ -19,6 +20,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   int page = 0;
   LiquidController liquidController;
   UpdateType updateType;
+  bool buttonColour = false;
 
   @override
   void initState() {
@@ -29,6 +31,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   //pat gay
 
   final pages = [
+    //first page
     SizedBox.expand(
       child: Container(
         color: Colors.grey[50],
@@ -75,16 +78,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                 child: Row(children: <Widget>[
                                   Expanded(
                                     child: Container(
-                                      height: double.infinity,
-                                      child: RaisedButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Gain Muscle Mass",
-                                          style: TextStyle(fontSize: 30),
+                                        height: double.infinity,
+                                          child: RaisedButton(
+                                            color: Colors.white,
+                                            onPressed: () {},
+                                            child: Text(
+                                              "Gain Muscle Mass",
+                                              style: TextStyle(fontSize: 30),
+                                            ),
+                                          ),
                                         ),
-                                        color: Colors.white,
-                                      ),
-                                    ),
                                   ),
                                   Container(
                                     height: double.infinity,
@@ -95,7 +98,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           Navigator.of(context).push(
                                               HeroDialogRoute(
                                                   builder: (context) {
-                                            return const _AddTodoPopupCard();
+                                            return const _GainMuscleTodoPopupCard();
                                           }));
                                           Hero(
                                             tag: _heroAddTodo,
@@ -144,16 +147,39 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   Container(
                                     height: double.infinity,
                                     width: 60,
-                                    child: RaisedButton(
-                                      onPressed: () {},
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Image.asset(
-                                        'assets/images/info_icon.png',
-                                        width: 35.0,
-                                        height: 35.0,
-                                      ),
-                                      color: Colors.white,
-                                    ),
+                                    child: Builder(builder: (context) {
+                                      return RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              HeroDialogRoute(
+                                                  builder: (context) {
+                                            return const _BurnFatTodoPopupCard();
+                                          }));
+                                          Hero(
+                                            tag: _heroAddTodo,
+                                            createRectTween: (begin, end) {
+                                              return CustomRectTween(
+                                                  begin: begin, end: end);
+                                            },
+                                            child: Material(
+                                              color: Colors.white,
+                                              elevation: 2,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32)),
+                                            ),
+                                          );
+                                        },
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Image.asset(
+                                          'assets/images/info_icon.png',
+                                          width: 35.0,
+                                          height: 35.0,
+                                        ),
+                                        color: Colors.white,
+                                      );
+                                    }),
                                   ),
                                 ]))),
                         Expanded(
@@ -176,16 +202,39 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   Container(
                                     height: double.infinity,
                                     width: 60,
-                                    child: RaisedButton(
-                                      onPressed: () {},
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Image.asset(
-                                        'assets/images/info_icon.png',
-                                        width: 35.0,
-                                        height: 35.0,
-                                      ),
-                                      color: Colors.white,
-                                    ),
+                                    child: Builder(builder: (context) {
+                                      return RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              HeroDialogRoute(
+                                                  builder: (context) {
+                                            return const _BalancedTodoPopupCard();
+                                          }));
+                                          Hero(
+                                            tag: _heroAddTodo,
+                                            createRectTween: (begin, end) {
+                                              return CustomRectTween(
+                                                  begin: begin, end: end);
+                                            },
+                                            child: Material(
+                                              color: Colors.white,
+                                              elevation: 2,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32)),
+                                            ),
+                                          );
+                                        },
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Image.asset(
+                                          'assets/images/info_icon.png',
+                                          width: 35.0,
+                                          height: 35.0,
+                                        ),
+                                        color: Colors.white,
+                                      );
+                                    }),
                                   ),
                                 ]))),
                         Expanded(
@@ -208,16 +257,39 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   Container(
                                     height: double.infinity,
                                     width: 60,
-                                    child: RaisedButton(
-                                      onPressed: () {},
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Image.asset(
-                                        'assets/images/info_icon.png',
-                                        width: 35.0,
-                                        height: 35.0,
-                                      ),
-                                      color: Colors.white,
-                                    ),
+                                    child: Builder(builder: (context) {
+                                      return RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              HeroDialogRoute(
+                                                  builder: (context) {
+                                            return const _ImproveCardioTodoPopupCard();
+                                          }));
+                                          Hero(
+                                            tag: _heroAddTodo,
+                                            createRectTween: (begin, end) {
+                                              return CustomRectTween(
+                                                  begin: begin, end: end);
+                                            },
+                                            child: Material(
+                                              color: Colors.white,
+                                              elevation: 2,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32)),
+                                            ),
+                                          );
+                                        },
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Image.asset(
+                                          'assets/images/info_icon.png',
+                                          width: 35.0,
+                                          height: 35.0,
+                                        ),
+                                        color: Colors.white,
+                                      );
+                                    }),
                                   ),
                                 ]))),
                         Expanded(
@@ -240,16 +312,39 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   Container(
                                     height: double.infinity,
                                     width: 60,
-                                    child: RaisedButton(
-                                      onPressed: () {},
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Image.asset(
-                                        'assets/images/info_icon.png',
-                                        width: 35.0,
-                                        height: 35.0,
-                                      ),
-                                      color: Colors.white,
-                                    ),
+                                    child: Builder(builder: (context) {
+                                      return RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              HeroDialogRoute(
+                                                  builder: (context) {
+                                            return const _ImproveStrengthTodoPopupCard();
+                                          }));
+                                          Hero(
+                                            tag: _heroAddTodo,
+                                            createRectTween: (begin, end) {
+                                              return CustomRectTween(
+                                                  begin: begin, end: end);
+                                            },
+                                            child: Material(
+                                              color: Colors.white,
+                                              elevation: 2,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32)),
+                                            ),
+                                          );
+                                        },
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Image.asset(
+                                          'assets/images/info_icon.png',
+                                          width: 35.0,
+                                          height: 35.0,
+                                        ),
+                                        color: Colors.white,
+                                      );
+                                    }),
                                   ),
                                 ]))),
                         Expanded(
@@ -272,16 +367,39 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   Container(
                                     height: double.infinity,
                                     width: 60,
-                                    child: RaisedButton(
-                                      onPressed: () {},
-                                      padding: EdgeInsets.all(0.0),
-                                      child: Image.asset(
-                                        'assets/images/info_icon.png',
-                                        width: 35.0,
-                                        height: 35.0,
-                                      ),
-                                      color: Colors.white,
-                                    ),
+                                    child: Builder(builder: (context) {
+                                      return RaisedButton(
+                                        onPressed: () {
+                                          Navigator.of(context).push(
+                                              HeroDialogRoute(
+                                                  builder: (context) {
+                                            return const _FlexibilityTodoPopupCard();
+                                          }));
+                                          Hero(
+                                            tag: _heroAddTodo,
+                                            createRectTween: (begin, end) {
+                                              return CustomRectTween(
+                                                  begin: begin, end: end);
+                                            },
+                                            child: Material(
+                                              color: Colors.white,
+                                              elevation: 2,
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          32)),
+                                            ),
+                                          );
+                                        },
+                                        padding: EdgeInsets.all(0.0),
+                                        child: Image.asset(
+                                          'assets/images/info_icon.png',
+                                          width: 35.0,
+                                          height: 35.0,
+                                        ),
+                                        color: Colors.white,
+                                      );
+                                    }),
                                   ),
                                 ]))),
                         SizedBox(
@@ -298,6 +416,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       ),
     ),
     SizedBox.expand(
+      //page 2
       child: Container(
         color: Colors.grey[50],
         child: Column(
@@ -329,6 +448,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       ),
     ),
     SizedBox.expand(
+      //page 3
       child: Container(
         color: Colors.grey[50],
         child: Column(
@@ -360,6 +480,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       ),
     ),
     SizedBox.expand(
+      //page 4
       child: Container(
         color: Colors.grey[50],
         child: Column(
@@ -391,6 +512,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
       ),
     ),
     SizedBox.expand(
+      //page 5
       child: Container(
         color: Colors.grey[50],
         child: Column(
@@ -494,9 +616,9 @@ const String _heroAddTodo = 'add-todo-hero';
 ///
 /// Uses a [Hero] with tag [_heroAddTodo].
 /// {@endtemplate}
-class _AddTodoPopupCard extends StatelessWidget {
+class _GainMuscleTodoPopupCard extends StatelessWidget {
   /// {@macro add_todo_popup_card}
-  const _AddTodoPopupCard({Key key}) : super(key: key);
+  const _GainMuscleTodoPopupCard({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -509,7 +631,7 @@ class _AddTodoPopupCard extends StatelessWidget {
             return CustomRectTween(begin: begin, end: end);
           },
           child: Material(
-            color: AppColors.accentColor,
+            color: Colors.white,
             elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
@@ -519,32 +641,245 @@ class _AddTodoPopupCard extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'New todo',
-                        border: InputBorder.none,
-                      ),
-                      cursorColor: Colors.white,
-                    ),
-                    const Divider(
-                      color: Colors.white,
-                      thickness: 0.2,
-                    ),
-                    const TextField(
-                      decoration: InputDecoration(
-                        hintText: 'Write a note',
-                        border: InputBorder.none,
-                      ),
-                      cursorColor: Colors.white,
-                      maxLines: 6,
-                    ),
-                    const Divider(
-                      color: Colors.white,
-                      thickness: 0.2,
+                    Text(
+                      "Gain Muscle Mass Info",
+                      style: QuestionnairePage.style,
                     ),
                     FlatButton(
-                      onPressed: () {},
-                      child: const Text('Add'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Close'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _BurnFatTodoPopupCard extends StatelessWidget {
+  /// {@macro add_todo_popup_card}
+  const _BurnFatTodoPopupCard({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Hero(
+          tag: _heroAddTodo,
+          createRectTween: (begin, end) {
+            return CustomRectTween(begin: begin, end: end);
+          },
+          child: Material(
+            color: Colors.white,
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Burn Fat Info",
+                      style: QuestionnairePage.style,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Close'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _BalancedTodoPopupCard extends StatelessWidget {
+  /// {@macro add_todo_popup_card}
+  const _BalancedTodoPopupCard({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Hero(
+          tag: _heroAddTodo,
+          createRectTween: (begin, end) {
+            return CustomRectTween(begin: begin, end: end);
+          },
+          child: Material(
+            color: Colors.white,
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Balanced Info",
+                      style: QuestionnairePage.style,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Close'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ImproveCardioTodoPopupCard extends StatelessWidget {
+  /// {@macro add_todo_popup_card}
+  const _ImproveCardioTodoPopupCard({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Hero(
+          tag: _heroAddTodo,
+          createRectTween: (begin, end) {
+            return CustomRectTween(begin: begin, end: end);
+          },
+          child: Material(
+            color: Colors.white,
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Improve Cardio Info",
+                      style: QuestionnairePage.style,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Close'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _FlexibilityTodoPopupCard extends StatelessWidget {
+  /// {@macro add_todo_popup_card}
+  const _FlexibilityTodoPopupCard({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Hero(
+          tag: _heroAddTodo,
+          createRectTween: (begin, end) {
+            return CustomRectTween(begin: begin, end: end);
+          },
+          child: Material(
+            color: Colors.white,
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Flexibility Info",
+                      style: QuestionnairePage.style,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Close'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ImproveStrengthTodoPopupCard extends StatelessWidget {
+  /// {@macro add_todo_popup_card}
+  const _ImproveStrengthTodoPopupCard({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Hero(
+          tag: _heroAddTodo,
+          createRectTween: (begin, end) {
+            return CustomRectTween(begin: begin, end: end);
+          },
+          child: Material(
+            color: Colors.white,
+            elevation: 2,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(32)),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "Improve Strength Info",
+                      style: QuestionnairePage.style,
+                    ),
+                    FlatButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Close'),
                     ),
                   ],
                 ),
