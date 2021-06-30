@@ -19,7 +19,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   int page = 0;
   LiquidController liquidController;
   UpdateType updateType;
-
+  bool buttonColour = false;
   @override
   void initState() {
     liquidController = LiquidController();
@@ -76,16 +76,18 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                 child: Row(children: <Widget>[
                                   Expanded(
                                     child: Container(
-                                        height: double.infinity,
-                                          child: RaisedButton(
-                                            color: Colors.white,
-                                            onPressed: () {},
-                                            child: Text(
-                                              "Gain Muscle Mass",
-                                              style: TextStyle(fontSize: 30),
-                                            ),
+                                      height: double.infinity,
+                                      child: Builder(builder: (context) {
+                                        return RaisedButton(
+                                          color: Colors.white,
+                                          onPressed: () {},
+                                          child: Text(
+                                            "Gain Muscle Mass",
+                                            style: TextStyle(fontSize: 30),
                                           ),
-                                        ),
+                                        );
+                                      }),
+                                    ),
                                   ),
                                   Container(
                                     height: double.infinity,
