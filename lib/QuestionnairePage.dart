@@ -19,13 +19,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   int page = 0;
   LiquidController liquidController;
   UpdateType updateType;
-  bool buttonColour;
+  var result = List(5);
 
   @override
   void initState() {
     liquidController = LiquidController();
     super.initState();
-    buttonColour = false;
+    result[0] = -1; //no buttons chosen yet (page1)
   }
 
   Widget _buildDot(int index) {
@@ -113,12 +113,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   child: Builder(
                                                       builder: (context) {
                                                     return RaisedButton(
-                                                      color: buttonColour
+                                                      color: result[0] == 0
                                                           ? Colors.blue
                                                           : Colors.white,
                                                       onPressed: () => setState(
-                                                          () => buttonColour =
-                                                              !buttonColour),
+                                                          () => result[0] = 0),
                                                       child: Text(
                                                         "Gain Muscle Mass",
                                                         style: TextStyle(
@@ -134,6 +133,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
+                                                    color: result[0] == 0
+                                                        ? Colors.blue
+                                                        : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -167,7 +169,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
-                                                    color: Colors.white,
                                                   );
                                                 }),
                                               ),
@@ -181,13 +182,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    onPressed: () {},
+                                                    color: result[0] == 1
+                                                        ? Colors.blue
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 1),
                                                     child: Text(
                                                       "Burn Fat",
                                                       style: TextStyle(
                                                           fontSize: 30),
                                                     ),
-                                                    color: Colors.white,
                                                   ),
                                                 ),
                                               ),
@@ -197,6 +201,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
+                                                    color: result[0] == 1
+                                                        ? Colors.blue
+                                                        : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -230,7 +237,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
-                                                    color: Colors.white,
                                                   );
                                                 }),
                                               ),
@@ -244,13 +250,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    onPressed: () {},
+                                                    color: result[0] == 2
+                                                        ? Colors.blue
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 2),
                                                     child: Text(
                                                       "Balanced",
                                                       style: TextStyle(
                                                           fontSize: 30),
                                                     ),
-                                                    color: Colors.white,
                                                   ),
                                                 ),
                                               ),
@@ -260,6 +269,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
+                                                    color: result[0] == 2
+                                                        ? Colors.blue
+                                                        : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -293,7 +305,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
-                                                    color: Colors.white,
                                                   );
                                                 }),
                                               ),
@@ -307,13 +318,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    onPressed: () {},
+                                                    color: result[0] == 3
+                                                        ? Colors.blue
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 3),
                                                     child: Text(
                                                       "Improve Cardio",
                                                       style: TextStyle(
                                                           fontSize: 30),
                                                     ),
-                                                    color: Colors.white,
                                                   ),
                                                 ),
                                               ),
@@ -323,6 +337,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
+                                                    color: result[0] == 3
+                                                        ? Colors.blue
+                                                        : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -356,7 +373,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
-                                                    color: Colors.white,
                                                   );
                                                 }),
                                               ),
@@ -370,13 +386,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    onPressed: () {},
+                                                    color: result[0] == 4
+                                                        ? Colors.blue
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 4),
                                                     child: Text(
                                                       "Improve Strength",
                                                       style: TextStyle(
                                                           fontSize: 30),
                                                     ),
-                                                    color: Colors.white,
                                                   ),
                                                 ),
                                               ),
@@ -386,6 +405,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
+                                                    color: result[0] == 4
+                                                        ? Colors.blue
+                                                        : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -419,70 +441,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
-                                                    color: Colors.white,
-                                                  );
-                                                }),
-                                              ),
-                                            ]))),
-                                    Expanded(
-                                        child: Container(
-                                            margin: EdgeInsets.fromLTRB(
-                                                20, 5, 20, 5),
-                                            child: Row(children: <Widget>[
-                                              Expanded(
-                                                child: Container(
-                                                  height: double.infinity,
-                                                  child: RaisedButton(
-                                                    onPressed: () {},
-                                                    child: Text(
-                                                      "Flexibility",
-                                                      style: TextStyle(
-                                                          fontSize: 30),
-                                                    ),
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                              ),
-                                              Container(
-                                                height: double.infinity,
-                                                width: 60,
-                                                child:
-                                                    Builder(builder: (context) {
-                                                  return RaisedButton(
-                                                    onPressed: () {
-                                                      Navigator.of(context)
-                                                          .push(HeroDialogRoute(
-                                                              builder:
-                                                                  (context) {
-                                                        return const _FlexibilityTodoPopupCard();
-                                                      }));
-                                                      Hero(
-                                                        tag: _heroAddTodo,
-                                                        createRectTween:
-                                                            (begin, end) {
-                                                          return CustomRectTween(
-                                                              begin: begin,
-                                                              end: end);
-                                                        },
-                                                        child: Material(
-                                                          color: Colors.white,
-                                                          elevation: 2,
-                                                          shape: RoundedRectangleBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          32)),
-                                                        ),
-                                                      );
-                                                    },
-                                                    padding:
-                                                        EdgeInsets.all(0.0),
-                                                    child: Image.asset(
-                                                      'assets/images/info_icon.png',
-                                                      width: 35.0,
-                                                      height: 35.0,
-                                                    ),
-                                                    color: Colors.white,
                                                   );
                                                 }),
                                               ),
