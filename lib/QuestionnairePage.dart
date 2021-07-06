@@ -19,530 +19,14 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   int page = 0;
   LiquidController liquidController;
   UpdateType updateType;
-  bool buttonColour = false;
+  bool buttonColour;
+
   @override
   void initState() {
     liquidController = LiquidController();
     super.initState();
+    buttonColour = false;
   }
-
-  //pat gay
-  final pages = [
-    //first page
-    SizedBox.expand(
-      child: Container(
-        color: Colors.grey[50],
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20.0),
-            ),
-            Expanded(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                      margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                      child: Text(
-                        "Awesome. Now that your account is created, let's start building YourPlan.",
-                        textAlign: TextAlign.center,
-                        style: QuestionnairePage.style,
-                      )),
-                  Container(
-                      margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
-                      child: Text(
-                        "What is your main fitness goal?",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            fontSize: 30, fontWeight: FontWeight.w500),
-                      )),
-                  Text(
-                    "(choose one)",
-                    style: TextStyle(fontSize: 20),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Expanded(
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: Builder(builder: (context) {
-                                        return RaisedButton(
-                                          color: Colors.white,
-                                          onPressed: () {},
-                                          child: Text(
-                                            "Gain Muscle Mass",
-                                            style: TextStyle(fontSize: 30),
-                                          ),
-                                        );
-                                      }),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: double.infinity,
-                                    width: 60,
-                                    child: Builder(builder: (context) {
-                                      return RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                              HeroDialogRoute(
-                                                  builder: (context) {
-                                            return const _GainMuscleTodoPopupCard();
-                                          }));
-                                          Hero(
-                                            tag: _heroAddTodo,
-                                            createRectTween: (begin, end) {
-                                              return CustomRectTween(
-                                                  begin: begin, end: end);
-                                            },
-                                            child: Material(
-                                              color: Colors.white,
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32)),
-                                            ),
-                                          );
-                                        },
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Image.asset(
-                                          'assets/images/info_icon.png',
-                                          width: 35.0,
-                                          height: 35.0,
-                                        ),
-                                        color: Colors.white,
-                                      );
-                                    }),
-                                  ),
-                                ]))),
-                        Expanded(
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: RaisedButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Burn Fat",
-                                          style: TextStyle(fontSize: 30),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: double.infinity,
-                                    width: 60,
-                                    child: Builder(builder: (context) {
-                                      return RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                              HeroDialogRoute(
-                                                  builder: (context) {
-                                            return const _BurnFatTodoPopupCard();
-                                          }));
-                                          Hero(
-                                            tag: _heroAddTodo,
-                                            createRectTween: (begin, end) {
-                                              return CustomRectTween(
-                                                  begin: begin, end: end);
-                                            },
-                                            child: Material(
-                                              color: Colors.white,
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32)),
-                                            ),
-                                          );
-                                        },
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Image.asset(
-                                          'assets/images/info_icon.png',
-                                          width: 35.0,
-                                          height: 35.0,
-                                        ),
-                                        color: Colors.white,
-                                      );
-                                    }),
-                                  ),
-                                ]))),
-                        Expanded(
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: RaisedButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Balanced",
-                                          style: TextStyle(fontSize: 30),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: double.infinity,
-                                    width: 60,
-                                    child: Builder(builder: (context) {
-                                      return RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                              HeroDialogRoute(
-                                                  builder: (context) {
-                                            return const _BalancedTodoPopupCard();
-                                          }));
-                                          Hero(
-                                            tag: _heroAddTodo,
-                                            createRectTween: (begin, end) {
-                                              return CustomRectTween(
-                                                  begin: begin, end: end);
-                                            },
-                                            child: Material(
-                                              color: Colors.white,
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32)),
-                                            ),
-                                          );
-                                        },
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Image.asset(
-                                          'assets/images/info_icon.png',
-                                          width: 35.0,
-                                          height: 35.0,
-                                        ),
-                                        color: Colors.white,
-                                      );
-                                    }),
-                                  ),
-                                ]))),
-                        Expanded(
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: RaisedButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Improve Cardio",
-                                          style: TextStyle(fontSize: 30),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: double.infinity,
-                                    width: 60,
-                                    child: Builder(builder: (context) {
-                                      return RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                              HeroDialogRoute(
-                                                  builder: (context) {
-                                            return const _ImproveCardioTodoPopupCard();
-                                          }));
-                                          Hero(
-                                            tag: _heroAddTodo,
-                                            createRectTween: (begin, end) {
-                                              return CustomRectTween(
-                                                  begin: begin, end: end);
-                                            },
-                                            child: Material(
-                                              color: Colors.white,
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32)),
-                                            ),
-                                          );
-                                        },
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Image.asset(
-                                          'assets/images/info_icon.png',
-                                          width: 35.0,
-                                          height: 35.0,
-                                        ),
-                                        color: Colors.white,
-                                      );
-                                    }),
-                                  ),
-                                ]))),
-                        Expanded(
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: RaisedButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Improve Strength",
-                                          style: TextStyle(fontSize: 30),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: double.infinity,
-                                    width: 60,
-                                    child: Builder(builder: (context) {
-                                      return RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                              HeroDialogRoute(
-                                                  builder: (context) {
-                                            return const _ImproveStrengthTodoPopupCard();
-                                          }));
-                                          Hero(
-                                            tag: _heroAddTodo,
-                                            createRectTween: (begin, end) {
-                                              return CustomRectTween(
-                                                  begin: begin, end: end);
-                                            },
-                                            child: Material(
-                                              color: Colors.white,
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32)),
-                                            ),
-                                          );
-                                        },
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Image.asset(
-                                          'assets/images/info_icon.png',
-                                          width: 35.0,
-                                          height: 35.0,
-                                        ),
-                                        color: Colors.white,
-                                      );
-                                    }),
-                                  ),
-                                ]))),
-                        Expanded(
-                            child: Container(
-                                margin: EdgeInsets.fromLTRB(20, 5, 20, 5),
-                                child: Row(children: <Widget>[
-                                  Expanded(
-                                    child: Container(
-                                      height: double.infinity,
-                                      child: RaisedButton(
-                                        onPressed: () {},
-                                        child: Text(
-                                          "Flexibility",
-                                          style: TextStyle(fontSize: 30),
-                                        ),
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    height: double.infinity,
-                                    width: 60,
-                                    child: Builder(builder: (context) {
-                                      return RaisedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).push(
-                                              HeroDialogRoute(
-                                                  builder: (context) {
-                                            return const _FlexibilityTodoPopupCard();
-                                          }));
-                                          Hero(
-                                            tag: _heroAddTodo,
-                                            createRectTween: (begin, end) {
-                                              return CustomRectTween(
-                                                  begin: begin, end: end);
-                                            },
-                                            child: Material(
-                                              color: Colors.white,
-                                              elevation: 2,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          32)),
-                                            ),
-                                          );
-                                        },
-                                        padding: EdgeInsets.all(0.0),
-                                        child: Image.asset(
-                                          'assets/images/info_icon.png',
-                                          width: 35.0,
-                                          height: 35.0,
-                                        ),
-                                        color: Colors.white,
-                                      );
-                                    }),
-                                  ),
-                                ]))),
-                        SizedBox(
-                          height: 55,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    ),
-    SizedBox.expand(
-      //page 2
-      child: Container(
-        color: Colors.grey[50],
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20.0),
-            ),
-            Column(
-              children: <Widget>[
-                Text(
-                  "Question 1:",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "Does Patrick get bitches?",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "(hint: it's yes)",
-                  style: QuestionnairePage.style,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ),
-    SizedBox.expand(
-      //page 3
-      child: Container(
-        color: Colors.grey[50],
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20.0),
-            ),
-            Column(
-              children: <Widget>[
-                Text(
-                  "Question 2:",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "____",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "____",
-                  style: QuestionnairePage.style,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ),
-    SizedBox.expand(
-      //page 4
-      child: Container(
-        color: Colors.grey[50],
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20.0),
-            ),
-            Column(
-              children: <Widget>[
-                Text(
-                  "Question 3: ",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "_____",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "______",
-                  style: QuestionnairePage.style,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ),
-    SizedBox.expand(
-      //page 5
-      child: Container(
-        color: Colors.grey[50],
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(20.0),
-            ),
-            Column(
-              children: <Widget>[
-                Text(
-                  "Question 4: ",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "______",
-                  style: QuestionnairePage.style,
-                ),
-                Text(
-                  "_______",
-                  style: QuestionnairePage.style,
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    ),
-  ];
 
   Widget _buildDot(int index) {
     double selectedness = Curves.easeOut.transform(
@@ -574,7 +58,577 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
         body: Stack(
           children: <Widget>[
             LiquidSwipe(
-              pages: pages,
+              pages: [
+                //first page
+                SizedBox.expand(
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                  child: Text(
+                                    "Awesome. Now that your account is created, let's start building YourPlan.",
+                                    textAlign: TextAlign.center,
+                                    style: QuestionnairePage.style,
+                                  )),
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "What is your main fitness goal?",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              Text(
+                                "(choose one)",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: Builder(
+                                                      builder: (context) {
+                                                    return RaisedButton(
+                                                      color: buttonColour
+                                                          ? Colors.blue
+                                                          : Colors.white,
+                                                      onPressed: () => setState(
+                                                          () => buttonColour =
+                                                              !buttonColour),
+                                                      child: Text(
+                                                        "Gain Muscle Mass",
+                                                        style: TextStyle(
+                                                            fontSize: 30),
+                                                      ),
+                                                    );
+                                                  }),
+                                                ),
+                                              ),
+                                              Container(
+                                                height: double.infinity,
+                                                width: 60,
+                                                child:
+                                                    Builder(builder: (context) {
+                                                  return RaisedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(HeroDialogRoute(
+                                                              builder:
+                                                                  (context) {
+                                                        return const _GainMuscleTodoPopupCard();
+                                                      }));
+                                                      Hero(
+                                                        tag: _heroAddTodo,
+                                                        createRectTween:
+                                                            (begin, end) {
+                                                          return CustomRectTween(
+                                                              begin: begin,
+                                                              end: end);
+                                                        },
+                                                        child: Material(
+                                                          color: Colors.white,
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                      );
+                                                    },
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
+                                                    child: Image.asset(
+                                                      'assets/images/info_icon.png',
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                    ),
+                                                    color: Colors.white,
+                                                  );
+                                                }),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    onPressed: () {},
+                                                    child: Text(
+                                                      "Burn Fat",
+                                                      style: TextStyle(
+                                                          fontSize: 30),
+                                                    ),
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                height: double.infinity,
+                                                width: 60,
+                                                child:
+                                                    Builder(builder: (context) {
+                                                  return RaisedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(HeroDialogRoute(
+                                                              builder:
+                                                                  (context) {
+                                                        return const _BurnFatTodoPopupCard();
+                                                      }));
+                                                      Hero(
+                                                        tag: _heroAddTodo,
+                                                        createRectTween:
+                                                            (begin, end) {
+                                                          return CustomRectTween(
+                                                              begin: begin,
+                                                              end: end);
+                                                        },
+                                                        child: Material(
+                                                          color: Colors.white,
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                      );
+                                                    },
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
+                                                    child: Image.asset(
+                                                      'assets/images/info_icon.png',
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                    ),
+                                                    color: Colors.white,
+                                                  );
+                                                }),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    onPressed: () {},
+                                                    child: Text(
+                                                      "Balanced",
+                                                      style: TextStyle(
+                                                          fontSize: 30),
+                                                    ),
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                height: double.infinity,
+                                                width: 60,
+                                                child:
+                                                    Builder(builder: (context) {
+                                                  return RaisedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(HeroDialogRoute(
+                                                              builder:
+                                                                  (context) {
+                                                        return const _BalancedTodoPopupCard();
+                                                      }));
+                                                      Hero(
+                                                        tag: _heroAddTodo,
+                                                        createRectTween:
+                                                            (begin, end) {
+                                                          return CustomRectTween(
+                                                              begin: begin,
+                                                              end: end);
+                                                        },
+                                                        child: Material(
+                                                          color: Colors.white,
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                      );
+                                                    },
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
+                                                    child: Image.asset(
+                                                      'assets/images/info_icon.png',
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                    ),
+                                                    color: Colors.white,
+                                                  );
+                                                }),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    onPressed: () {},
+                                                    child: Text(
+                                                      "Improve Cardio",
+                                                      style: TextStyle(
+                                                          fontSize: 30),
+                                                    ),
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                height: double.infinity,
+                                                width: 60,
+                                                child:
+                                                    Builder(builder: (context) {
+                                                  return RaisedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(HeroDialogRoute(
+                                                              builder:
+                                                                  (context) {
+                                                        return const _ImproveCardioTodoPopupCard();
+                                                      }));
+                                                      Hero(
+                                                        tag: _heroAddTodo,
+                                                        createRectTween:
+                                                            (begin, end) {
+                                                          return CustomRectTween(
+                                                              begin: begin,
+                                                              end: end);
+                                                        },
+                                                        child: Material(
+                                                          color: Colors.white,
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                      );
+                                                    },
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
+                                                    child: Image.asset(
+                                                      'assets/images/info_icon.png',
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                    ),
+                                                    color: Colors.white,
+                                                  );
+                                                }),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    onPressed: () {},
+                                                    child: Text(
+                                                      "Improve Strength",
+                                                      style: TextStyle(
+                                                          fontSize: 30),
+                                                    ),
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                height: double.infinity,
+                                                width: 60,
+                                                child:
+                                                    Builder(builder: (context) {
+                                                  return RaisedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(HeroDialogRoute(
+                                                              builder:
+                                                                  (context) {
+                                                        return const _ImproveStrengthTodoPopupCard();
+                                                      }));
+                                                      Hero(
+                                                        tag: _heroAddTodo,
+                                                        createRectTween:
+                                                            (begin, end) {
+                                                          return CustomRectTween(
+                                                              begin: begin,
+                                                              end: end);
+                                                        },
+                                                        child: Material(
+                                                          color: Colors.white,
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                      );
+                                                    },
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
+                                                    child: Image.asset(
+                                                      'assets/images/info_icon.png',
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                    ),
+                                                    color: Colors.white,
+                                                  );
+                                                }),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    onPressed: () {},
+                                                    child: Text(
+                                                      "Flexibility",
+                                                      style: TextStyle(
+                                                          fontSize: 30),
+                                                    ),
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                              Container(
+                                                height: double.infinity,
+                                                width: 60,
+                                                child:
+                                                    Builder(builder: (context) {
+                                                  return RaisedButton(
+                                                    onPressed: () {
+                                                      Navigator.of(context)
+                                                          .push(HeroDialogRoute(
+                                                              builder:
+                                                                  (context) {
+                                                        return const _FlexibilityTodoPopupCard();
+                                                      }));
+                                                      Hero(
+                                                        tag: _heroAddTodo,
+                                                        createRectTween:
+                                                            (begin, end) {
+                                                          return CustomRectTween(
+                                                              begin: begin,
+                                                              end: end);
+                                                        },
+                                                        child: Material(
+                                                          color: Colors.white,
+                                                          elevation: 2,
+                                                          shape: RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32)),
+                                                        ),
+                                                      );
+                                                    },
+                                                    padding:
+                                                        EdgeInsets.all(0.0),
+                                                    child: Image.asset(
+                                                      'assets/images/info_icon.png',
+                                                      width: 35.0,
+                                                      height: 35.0,
+                                                    ),
+                                                    color: Colors.white,
+                                                  );
+                                                }),
+                                              ),
+                                            ]))),
+                                    SizedBox(
+                                      height: 55,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox.expand(
+                  //page 2
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              "Question 1:",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "Does Patrick get bitches?",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "(hint: it's yes)",
+                              style: QuestionnairePage.style,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox.expand(
+                  //page 3
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              "Question 2:",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "____",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "____",
+                              style: QuestionnairePage.style,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox.expand(
+                  //page 4
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              "Question 3: ",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "_____",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "______",
+                              style: QuestionnairePage.style,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                SizedBox.expand(
+                  //page 5
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              "Question 4: ",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "______",
+                              style: QuestionnairePage.style,
+                            ),
+                            Text(
+                              "_______",
+                              style: QuestionnairePage.style,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
               onPageChangeCallback: pageChangeCallback,
               waveType: WaveType.liquidReveal,
               liquidController: liquidController,
@@ -588,7 +642,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                   Expanded(child: SizedBox()),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List<Widget>.generate(pages.length, _buildDot),
+                    children: List<Widget>.generate(5, _buildDot),
                   ),
                 ],
               ),
