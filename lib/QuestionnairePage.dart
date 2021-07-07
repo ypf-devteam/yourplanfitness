@@ -114,7 +114,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       builder: (context) {
                                                     return RaisedButton(
                                                       color: result[0] == 0
-                                                          ? Colors.blue
+                                                          ? Color(0xFF00BFFF)
                                                           : Colors.white,
                                                       onPressed: () => setState(
                                                           () => result[0] = 0),
@@ -138,7 +138,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 0
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -190,7 +190,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 1
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 1),
@@ -212,7 +212,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 1
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -264,7 +264,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 2
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 2),
@@ -286,7 +286,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 2
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -338,7 +338,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 3
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 3),
@@ -360,7 +360,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 3
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -412,7 +412,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 4
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 4),
@@ -434,7 +434,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 4
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
