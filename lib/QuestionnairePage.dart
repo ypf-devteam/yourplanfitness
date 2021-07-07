@@ -123,7 +123,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         style: TextStyle(
                                                             fontSize: 30,
                                                             color: result[0] ==
-                                                                    4
+                                                                    0
                                                                 ? Colors.white
                                                                 : Colors.black),
                                                       ),
@@ -170,6 +170,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
+                                                      color: result[0] == 0
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
@@ -195,7 +198,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       "Burn Fat",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 4
+                                                          color: result[0] == 1
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
@@ -241,6 +244,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
+                                                      color: result[0] == 1
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
@@ -266,7 +272,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       "Balanced",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 4
+                                                          color: result[0] == 2
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
@@ -312,6 +318,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
+                                                      color: result[0] == 2
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
@@ -337,7 +346,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       "Improve Cardio",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 4
+                                                          color: result[0] == 3
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
@@ -383,6 +392,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
+                                                      color: result[0] == 3
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
@@ -454,6 +466,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
+                                                      color: result[0] == 4
+                                                          ? Colors.white
+                                                          : Colors.black,
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
