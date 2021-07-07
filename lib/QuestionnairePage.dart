@@ -121,7 +121,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       child: Text(
                                                         "Gain Muscle Mass",
                                                         style: TextStyle(
-                                                            fontSize: 30),
+                                                            fontSize: 30,
+                                                            color: result[0] ==
+                                                                    4
+                                                                ? Colors.white
+                                                                : Colors.black),
                                                       ),
                                                     );
                                                   }),
@@ -190,7 +194,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     child: Text(
                                                       "Burn Fat",
                                                       style: TextStyle(
-                                                          fontSize: 30),
+                                                          fontSize: 30,
+                                                          color: result[0] == 4
+                                                              ? Colors.white
+                                                              : Colors.black),
                                                     ),
                                                   ),
                                                 ),
@@ -258,7 +265,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     child: Text(
                                                       "Balanced",
                                                       style: TextStyle(
-                                                          fontSize: 30),
+                                                          fontSize: 30,
+                                                          color: result[0] == 4
+                                                              ? Colors.white
+                                                              : Colors.black),
                                                     ),
                                                   ),
                                                 ),
@@ -326,7 +336,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     child: Text(
                                                       "Improve Cardio",
                                                       style: TextStyle(
-                                                          fontSize: 30),
+                                                          fontSize: 30,
+                                                          color: result[0] == 4
+                                                              ? Colors.white
+                                                              : Colors.black),
                                                     ),
                                                   ),
                                                 ),
@@ -394,7 +407,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     child: Text(
                                                       "Improve Strength",
                                                       style: TextStyle(
-                                                          fontSize: 30),
+                                                          fontSize: 30,
+                                                          color: result[0] == 4
+                                                              ? Colors.white
+                                                              : Colors.black),
                                                     ),
                                                   ),
                                                 ),
