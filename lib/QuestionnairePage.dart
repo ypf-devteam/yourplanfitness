@@ -20,6 +20,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   LiquidController liquidController;
   UpdateType updateType;
   var result = List(5);
+  var secondResult = List(7);
 
   @override
   void initState() {
@@ -114,7 +115,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                       builder: (context) {
                                                     return RaisedButton(
                                                       color: result[0] == 0
-                                                          ? Colors.blue
+                                                          ? Color(0xFF00BFFF)
                                                           : Colors.white,
                                                       onPressed: () => setState(
                                                           () => result[0] = 0),
@@ -138,7 +139,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 0
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -190,7 +191,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 1
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 1),
@@ -212,7 +213,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 1
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -264,7 +265,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 2
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 2),
@@ -286,7 +287,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 2
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -338,7 +339,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 3
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 3),
@@ -360,7 +361,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 3
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -412,7 +413,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   height: double.infinity,
                                                   child: RaisedButton(
                                                     color: result[0] == 4
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
                                                         () => result[0] = 4),
@@ -434,7 +435,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
                                                     color: result[0] == 4
-                                                        ? Colors.blue
+                                                        ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
@@ -489,33 +490,296 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     ),
                   ),
                 ),
+                //PAGE NUMBER TWO HOLY SHMOK'
                 SizedBox.expand(
-                  //page 2
                   child: Container(
                     color: Colors.grey[50],
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.all(20.0),
                         ),
-                        Column(
-                          children: <Widget>[
-                            Text(
-                              "Question 1:",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "Does Patrick get bitches?",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "(hint: it's yes)",
-                              style: QuestionnairePage.style,
-                            ),
-                          ],
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "What equipment do you have?",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              Text(
+                                "(Select all you have available to you)",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: Builder(
+                                                      builder: (context) {
+                                                    return RaisedButton(
+                                                      color: secondResult[0] ==
+                                                              "Dumbbells"
+                                                          ? Color(0xFF00BFFF)
+                                                          : Colors.white,
+                                                      onPressed: () => setState(
+                                                          () => secondResult[
+                                                                      0] ==
+                                                                  "Dumbbells"
+                                                              ? secondResult[
+                                                                  0] = ""
+                                                              : secondResult[
+                                                                      0] =
+                                                                  "Dumbbells"),
+                                                      child: Text(
+                                                        "Dumbbells",
+                                                        style: TextStyle(
+                                                            fontSize: 30,
+                                                            color: secondResult[
+                                                                        0] ==
+                                                                    "Dumbbells"
+                                                                ? Colors.white
+                                                                : Colors.black),
+                                                      ),
+                                                    );
+                                                  }),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: secondResult[1] ==
+                                                            "Barbell"
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => secondResult[1] ==
+                                                                "Barbell"
+                                                            ? secondResult[1] =
+                                                                ""
+                                                            : secondResult[1] =
+                                                                "Barbell"),
+                                                    child: Text(
+                                                      "Barbell",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color:
+                                                              secondResult[1] ==
+                                                                      "Barbell"
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: secondResult[2] ==
+                                                            "Bench"
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => secondResult[2] ==
+                                                                "Bench"
+                                                            ? secondResult[2] =
+                                                                ""
+                                                            : secondResult[2] =
+                                                                "Bench"),
+                                                    child: Text(
+                                                      "Bench",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color:
+                                                              secondResult[2] ==
+                                                                      "Bench"
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: secondResult[3] ==
+                                                            "Squat Rack"
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => secondResult[3] ==
+                                                                "Squat Rack"
+                                                            ? secondResult[3] =
+                                                                ""
+                                                            : secondResult[3] =
+                                                                "Squat Rack"),
+                                                    child: Text(
+                                                      "Squat Rack",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: secondResult[
+                                                                      3] ==
+                                                                  "Squat Rack"
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: secondResult[4] ==
+                                                            "Resistence Bands"
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => secondResult[4] ==
+                                                                "Resistence Bands"
+                                                            ? secondResult[4] =
+                                                                ""
+                                                            : secondResult[4] =
+                                                                "Resistence Bands"),
+                                                    child: Text(
+                                                      "Resistence Bands",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: secondResult[
+                                                                      4] ==
+                                                                  "Resistence Bands"
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: secondResult[5] ==
+                                                            "Full Gym"
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => secondResult[5] ==
+                                                                "Full Gym"
+                                                            ? secondResult[5] =
+                                                                ""
+                                                            : secondResult[5] =
+                                                                "Full Gym"),
+                                                    child: Text(
+                                                      "Full Gym",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color:
+                                                              secondResult[5] ==
+                                                                      "Full Gym"
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: secondResult[6] ==
+                                                            "Somewhere to Run"
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => secondResult[6] ==
+                                                                "Somewhere to Run"
+                                                            ? secondResult[6] =
+                                                                ""
+                                                            : secondResult[6] =
+                                                                "Somewhere to Run"),
+                                                    child: Text(
+                                                      "Somewhere to Run",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: secondResult[
+                                                                      6] ==
+                                                                  "Somewhere to Run"
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    SizedBox(
+                                      height: 55,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
