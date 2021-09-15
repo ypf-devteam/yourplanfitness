@@ -11,6 +11,18 @@ class QuestionnairePage extends StatefulWidget {
     fontFamily: "Billy",
   );
 
+  static final popupTitle = TextStyle(
+    fontSize: 24,
+    fontFamily: "Billy",
+    fontWeight: FontWeight.bold,
+  );
+
+  static final popupSubLabel = TextStyle(
+    fontSize: 22,
+    fontFamily: "Billy",
+    fontWeight: FontWeight.bold,
+  );
+
   @override
   _QuestionnairePageState createState() => _QuestionnairePageState();
 }
@@ -945,16 +957,51 @@ class _GainMuscleTodoPopupCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Gain Muscle Mass Info",
+                      "Gain Muscle Mass",
+                      style: QuestionnairePage.popupTitle,
+                    ),
+                    Text(
+                      "Overview:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "+ Build Strength\n+ Add Muscle\n+ Increase Weight\n - Add Fat\n",
+                      textAlign: TextAlign.left,
                       style: QuestionnairePage.style,
                     ),
-                    FlatButton(
+                    Text(
+                      "Workout:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Muscular Hypertrophy\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    Text(
+                      "Nutrition:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Calroic Surplus\n- High Carbs\n- Moderate Protein\n- Low Fats\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    TextButton(
+                      // color: Color(0xFF00BFFF),
                       onPressed: () {
                         Navigator.pop(context);
                       },
+                      style: TextButton.styleFrom(
+                        primary: Color(0xFF00BFFF),
+                      ),
                       child: const Text('Close'),
                     ),
                   ],
@@ -991,16 +1038,51 @@ class _BurnFatTodoPopupCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Burn Fat Info",
+                      "Burn Fat",
+                      style: QuestionnairePage.popupTitle,
+                    ),
+                    Text(
+                      "Overview:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "+ Lose Weight\n+ Lose Fat\n - Lose Muscle\n",
+                      textAlign: TextAlign.left,
                       style: QuestionnairePage.style,
                     ),
-                    FlatButton(
+                    Text(
+                      "Workout:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- High Intensity Training\n- Cadriovascular Training\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    Text(
+                      "Nutrition:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Calroic Surplus\n- Low Carbs\n- High Protein\n- High Fats\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    TextButton(
+                      // color: Color(0xFF00BFFF),
                       onPressed: () {
                         Navigator.pop(context);
                       },
+                      style: TextButton.styleFrom(
+                        primary: Color(0xFF00BFFF),
+                      ),
                       child: const Text('Close'),
                     ),
                   ],
@@ -1037,16 +1119,51 @@ class _BalancedTodoPopupCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Balanced Info",
+                      "Balanced Training",
+                      style: QuestionnairePage.popupTitle,
+                    ),
+                    Text(
+                      "Overview:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "+ Build Strength\n+ Lose Fat\n - Increased Duration\n",
+                      textAlign: TextAlign.left,
                       style: QuestionnairePage.style,
                     ),
-                    FlatButton(
+                    Text(
+                      "Workout:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Muscular Hypertrophy\n- High Intensity Training\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    Text(
+                      "Nutrition:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Slight Calroic Surplus\n- Low Carbs\n- High Protein\n- High Fats\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    TextButton(
+                      // color: Color(0xFF00BFFF),
                       onPressed: () {
                         Navigator.pop(context);
                       },
+                      style: TextButton.styleFrom(
+                        primary: Color(0xFF00BFFF),
+                      ),
                       child: const Text('Close'),
                     ),
                   ],
@@ -1083,16 +1200,51 @@ class _ImproveCardioTodoPopupCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Improve Cardio Info",
+                      "Improve Cardio",
+                      style: QuestionnairePage.popupTitle,
+                    ),
+                    Text(
+                      "Overview:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "+ Increase Endurance\n+ Lose Weight\n+ Lose Fat\n - Lose Muscle\n",
+                      textAlign: TextAlign.left,
                       style: QuestionnairePage.style,
                     ),
-                    FlatButton(
+                    Text(
+                      "Workout:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Cardiovascular Training\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    Text(
+                      "Nutrition:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Slight Calroic Surplus\n- High Carbs\n- Moderate Protein\n- Low Fats\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    TextButton(
+                      // color: Color(0xFF00BFFF),
                       onPressed: () {
                         Navigator.pop(context);
                       },
+                      style: TextButton.styleFrom(
+                        primary: Color(0xFF00BFFF),
+                      ),
                       child: const Text('Close'),
                     ),
                   ],
@@ -1132,13 +1284,17 @@ class _FlexibilityTodoPopupCard extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Flexibility Info",
+                      "Flexibility Info\n- Hello",
                       style: QuestionnairePage.style,
                     ),
-                    FlatButton(
+                    TextButton(
+                      // color: Color(0xFF00BFFF),
                       onPressed: () {
                         Navigator.pop(context);
                       },
+                      style: TextButton.styleFrom(
+                        primary: Color(0xFF00BFFF),
+                      ),
                       child: const Text('Close'),
                     ),
                   ],
@@ -1175,16 +1331,51 @@ class _ImproveStrengthTodoPopupCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      "Improve Strength Info",
+                      "Improve Strength",
+                      style: QuestionnairePage.popupTitle,
+                    ),
+                    Text(
+                      "Overview:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "+ Build Strength\n+ Add Muscle\n+ Increase Weight\n - Add Fat\n",
+                      textAlign: TextAlign.left,
                       style: QuestionnairePage.style,
                     ),
-                    FlatButton(
+                    Text(
+                      "Workout:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Strength Training\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    Text(
+                      "Nutrition:",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.popupSubLabel,
+                    ),
+                    Text(
+                      "- Caloric Surplus\n- High Carbs\n- Moderate Protein\n- Low Fats\n",
+                      textAlign: TextAlign.left,
+                      style: QuestionnairePage.style,
+                    ),
+                    TextButton(
+                      // color: Color(0xFF00BFFF),
                       onPressed: () {
                         Navigator.pop(context);
                       },
+                      style: TextButton.styleFrom(
+                        primary: Color(0xFF00BFFF),
+                      ),
                       child: const Text('Close'),
                     ),
                   ],
