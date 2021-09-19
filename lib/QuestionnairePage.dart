@@ -72,7 +72,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           children: <Widget>[
             LiquidSwipe(
               pages: [
-                //first page
+                //second page
                 SizedBox.expand(
                   child: Container(
                     color: Colors.grey[50],
@@ -94,6 +94,277 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                     textAlign: TextAlign.center,
                                     style: QuestionnairePage.style,
                                   )),
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "What is your experience with exercise/training?",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: Builder(
+                                                      builder: (context) {
+                                                    return RaisedButton(
+                                                      color: result[0] == 0
+                                                          ? Color(0xFF00BFFF)
+                                                          : Colors.white,
+                                                      onPressed: () => setState(
+                                                          () => result[0] = 0),
+                                                      child: Text(
+                                                        "Beginner",
+                                                        style: TextStyle(
+                                                            fontSize: 30,
+                                                            color: result[0] ==
+                                                                    0
+                                                                ? Colors.white
+                                                                : Colors.black),
+                                                      ),
+                                                    );
+                                                  }),
+                                                ),
+                                              ),
+                                              // Container(
+                                              //   height: double.infinity,
+                                              //   width: 60,
+                                              //   child:
+                                              //       Builder(builder: (context) {
+                                              //     return RaisedButton(
+                                              //       color: result[0] == 0
+                                              //           ? Color(0xFF00BFFF)
+                                              //           : Colors.white,
+                                              //       onPressed: () {
+                                              //         Navigator.of(context)
+                                              //             .push(HeroDialogRoute(
+                                              //                 builder:
+                                              //                     (context) {
+                                              //           return const _GainMuscleTodoPopupCard();
+                                              //         }));
+                                              //         Hero(
+                                              //           tag: _heroAddTodo,
+                                              //           createRectTween:
+                                              //               (begin, end) {
+                                              //             return CustomRectTween(
+                                              //                 begin: begin,
+                                              //                 end: end);
+                                              //           },
+                                              //           child: Material(
+                                              //             color: Colors.white,
+                                              //             elevation: 2,
+                                              //             shape: RoundedRectangleBorder(
+                                              //                 borderRadius:
+                                              //                     BorderRadius
+                                              //                         .circular(
+                                              //                             32)),
+                                              //           ),
+                                              //         );
+                                              //       },
+                                              //       padding:
+                                              //           EdgeInsets.all(0.0),
+                                              //       child: Image.asset(
+                                              //         'assets/images/info_icon.png',
+                                              //         color: result[0] == 0
+                                              //             ? Colors.white
+                                              //             : Colors.black,
+                                              //         width: 35.0,
+                                              //         height: 35.0,
+                                              //       ),
+                                              //     );
+                                              //   }),
+                                              // ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: result[0] == 1
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 1),
+                                                    child: Text(
+                                                      "Intermediate",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: result[0] == 1
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              // Container(
+                                              //   height: double.infinity,
+                                              //   width: 60,
+                                              //   child:
+                                              //       Builder(builder: (context) {
+                                              //     return RaisedButton(
+                                              //       color: result[0] == 1
+                                              //           ? Color(0xFF00BFFF)
+                                              //           : Colors.white,
+                                              //       onPressed: () {
+                                              //         Navigator.of(context)
+                                              //             .push(HeroDialogRoute(
+                                              //                 builder:
+                                              //                     (context) {
+                                              //           return const _BurnFatTodoPopupCard();
+                                              //         }));
+                                              //         Hero(
+                                              //           tag: _heroAddTodo,
+                                              //           createRectTween:
+                                              //               (begin, end) {
+                                              //             return CustomRectTween(
+                                              //                 begin: begin,
+                                              //                 end: end);
+                                              //           },
+                                              //           child: Material(
+                                              //             color: Colors.white,
+                                              //             elevation: 2,
+                                              //             shape: RoundedRectangleBorder(
+                                              //                 borderRadius:
+                                              //                     BorderRadius
+                                              //                         .circular(
+                                              //                             32)),
+                                              //           ),
+                                              //         );
+                                              //       },
+                                              //       padding:
+                                              //           EdgeInsets.all(0.0),
+                                              //       child: Image.asset(
+                                              //         'assets/images/info_icon.png',
+                                              //         color: result[0] == 1
+                                              //             ? Colors.white
+                                              //             : Colors.black,
+                                              //         width: 35.0,
+                                              //         height: 35.0,
+                                              //       ),
+                                              //     );
+                                              //   }),
+                                              // ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: result[0] == 2
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 2),
+                                                    child: Text(
+                                                      "Advanced",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: result[0] == 2
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              // Container(
+                                              //   height: double.infinity,
+                                              //   width: 60,
+                                              //   child:
+                                              //       Builder(builder: (context) {
+                                              //     return RaisedButton(
+                                              //       color: result[0] == 2
+                                              //           ? Color(0xFF00BFFF)
+                                              //           : Colors.white,
+                                              //       onPressed: () {
+                                              //         Navigator.of(context)
+                                              //             .push(HeroDialogRoute(
+                                              //                 builder:
+                                              //                     (context) {
+                                              //           return const _BalancedTodoPopupCard();
+                                              //         }));
+                                              //         Hero(
+                                              //           tag: _heroAddTodo,
+                                              //           createRectTween:
+                                              //               (begin, end) {
+                                              //             return CustomRectTween(
+                                              //                 begin: begin,
+                                              //                 end: end);
+                                              //           },
+                                              //           child: Material(
+                                              //             color: Colors.white,
+                                              //             elevation: 2,
+                                              //             shape: RoundedRectangleBorder(
+                                              //                 borderRadius:
+                                              //                     BorderRadius
+                                              //                         .circular(
+                                              //                             32)),
+                                              //           ),
+                                              //         );
+                                              //       },
+                                              //       padding:
+                                              //           EdgeInsets.all(0.0),
+                                              //       child: Image.asset(
+                                              //         'assets/images/info_icon.png',
+                                              //         color: result[0] == 2
+                                              //             ? Colors.white
+                                              //             : Colors.black,
+                                              //         width: 35.0,
+                                              //         height: 35.0,
+                                              //       ),
+                                              //     );
+                                              //   }),
+                                              // ),
+                                            ]))),
+                                    SizedBox(
+                                      height: 55,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //third page
+                SizedBox.expand(
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
                               Container(
                                   margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
                                   child: Text(
@@ -502,7 +773,134 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     ),
                   ),
                 ),
-                //PAGE NUMBER TWO HOLY SHMOK'
+                //fifth page
+                SizedBox.expand(
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "Do you follow any specialty diets?",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: Builder(
+                                                      builder: (context) {
+                                                    return RaisedButton(
+                                                      color: result[0] == 0
+                                                          ? Color(0xFF00BFFF)
+                                                          : Colors.white,
+                                                      onPressed: () => setState(
+                                                          () => result[0] = 0),
+                                                      child: Text(
+                                                        "Vegan",
+                                                        style: TextStyle(
+                                                            fontSize: 30,
+                                                            color: result[0] ==
+                                                                    0
+                                                                ? Colors.white
+                                                                : Colors.black),
+                                                      ),
+                                                    );
+                                                  }),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: result[0] == 1
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 1),
+                                                    child: Text(
+                                                      "Vegetarian",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: result[0] == 1
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: result[0] == 2
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 2),
+                                                    child: Text(
+                                                      "None",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: result[0] == 2
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    SizedBox(
+                                      height: 55,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //seventh page
                 SizedBox.expand(
                   child: Container(
                     color: Colors.grey[50],
@@ -777,6 +1175,163 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                           color: secondResult[
                                                                       6] ==
                                                                   "Somewhere to Run"
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    SizedBox(
+                                      height: 55,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //eighth page
+                SizedBox.expand(
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "How many days do you want to workout?",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              Text(
+                                "(You can change this once your plan is made)",
+                                style: TextStyle(fontSize: 20),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: <Widget>[
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: Builder(
+                                                      builder: (context) {
+                                                    return RaisedButton(
+                                                      color: result[0] == 0
+                                                          ? Color(0xFF00BFFF)
+                                                          : Colors.white,
+                                                      onPressed: () => setState(
+                                                          () => result[0] = 0),
+                                                      child: Text(
+                                                        "3",
+                                                        style: TextStyle(
+                                                            fontSize: 30,
+                                                            color: result[0] ==
+                                                                    0
+                                                                ? Colors.white
+                                                                : Colors.black),
+                                                      ),
+                                                    );
+                                                  }),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: result[0] == 1
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 1),
+                                                    child: Text(
+                                                      "4",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: result[0] == 1
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: result[0] == 2
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 2),
+                                                    child: Text(
+                                                      "5",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: result[0] == 2
+                                                              ? Colors.white
+                                                              : Colors.black),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ]))),
+                                    Expanded(
+                                        child: Container(
+                                            margin: EdgeInsets.fromLTRB(
+                                                20, 5, 20, 5),
+                                            child: Row(children: <Widget>[
+                                              Expanded(
+                                                child: Container(
+                                                  height: double.infinity,
+                                                  child: RaisedButton(
+                                                    color: result[0] == 2
+                                                        ? Color(0xFF00BFFF)
+                                                        : Colors.white,
+                                                    onPressed: () => setState(
+                                                        () => result[0] = 2),
+                                                    child: Text(
+                                                      "6",
+                                                      style: TextStyle(
+                                                          fontSize: 30,
+                                                          color: result[0] == 2
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
