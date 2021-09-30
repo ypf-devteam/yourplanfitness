@@ -31,14 +31,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   int page = 0;
   LiquidController liquidController;
   UpdateType updateType;
-  var result = List(5);
-  var secondResult = List(7);
+  var equipmentResults = Map();
+  var results = Map();
 
   @override
   void initState() {
     liquidController = LiquidController();
     super.initState();
-    result[0] = -1; //no buttons chosen yet (page1)
   }
 
   Widget _buildDot(int index) {
@@ -122,17 +121,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   child: Builder(
                                                       builder: (context) {
                                                     return RaisedButton(
-                                                      color: result[0] == 0
+                                                      color: results[
+                                                                  'secondQuestion'] ==
+                                                              "Beginner"
                                                           ? Color(0xFF00BFFF)
                                                           : Colors.white,
                                                       onPressed: () => setState(
-                                                          () => result[0] = 0),
+                                                          () => results[
+                                                                  'secondQuestion'] =
+                                                              "Beginner"),
                                                       child: Text(
                                                         "Beginner",
                                                         style: TextStyle(
                                                             fontSize: 30,
-                                                            color: result[0] ==
-                                                                    0
+                                                            color: results[
+                                                                        'secondQuestion'] ==
+                                                                    "Beginner"
                                                                 ? Colors.white
                                                                 : Colors.black),
                                                       ),
@@ -198,16 +202,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 1
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['secondQuestion'] ==
+                                                                "Intermediate"
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 1),
+                                                        () => results[
+                                                                'secondQuestion'] =
+                                                            "Intermediate"),
                                                     child: Text(
                                                       "Intermediate",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 1
+                                                          color: results[
+                                                                      'secondQuestion'] ==
+                                                                  "Intermediate"
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
@@ -272,18 +282,25 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 2
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['secondQuestion'] ==
+                                                                "Advanced"
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 2),
+                                                        () => results[
+                                                                'secondQuestion'] =
+                                                            "Advanced"),
                                                     child: Text(
                                                       "Advanced",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 2
-                                                              ? Colors.white
-                                                              : Colors.black),
+                                                          color:
+                                                              results['secondQuestion'] ==
+                                                                      "Advanced"
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
                                                     ),
                                                   ),
                                                 ),
@@ -397,17 +414,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   child: Builder(
                                                       builder: (context) {
                                                     return RaisedButton(
-                                                      color: result[0] == 0
+                                                      color: results[
+                                                                  'thirdQuestion'] ==
+                                                              'Gain Muscle Mass'
                                                           ? Color(0xFF00BFFF)
                                                           : Colors.white,
                                                       onPressed: () => setState(
-                                                          () => result[0] = 0),
+                                                          () => results[
+                                                                  'thirdQuestion'] =
+                                                              'Gain Muscle Mass'),
                                                       child: Text(
                                                         "Gain Muscle Mass",
                                                         style: TextStyle(
                                                             fontSize: 30,
-                                                            color: result[0] ==
-                                                                    0
+                                                            color: results[
+                                                                        'thirdQuestion'] ==
+                                                                    'Gain Muscle Mass'
                                                                 ? Colors.white
                                                                 : Colors.black),
                                                       ),
@@ -421,7 +443,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
-                                                    color: result[0] == 0
+                                                    color: results[
+                                                                'thirdQuestion'] ==
+                                                            'Gain Muscle Mass'
                                                         ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
@@ -454,7 +478,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
-                                                      color: result[0] == 0
+                                                      color: results[
+                                                                  'thirdQuestion'] ==
+                                                              'Gain Muscle Mass'
                                                           ? Colors.white
                                                           : Colors.black,
                                                       width: 35.0,
@@ -473,18 +499,25 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 1
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['thirdQuestion'] ==
+                                                                'Burn Fat'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 1),
+                                                        () => results[
+                                                                'thirdQuestion'] =
+                                                            'Burn Fat'),
                                                     child: Text(
                                                       "Burn Fat",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 1
-                                                              ? Colors.white
-                                                              : Colors.black),
+                                                          color:
+                                                              results['thirdQuestion'] ==
+                                                                      'Burn Fat'
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
                                                     ),
                                                   ),
                                                 ),
@@ -495,9 +528,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
-                                                    color: result[0] == 1
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['thirdQuestion'] ==
+                                                                'Burn Fat'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -528,9 +563,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
-                                                      color: result[0] == 1
-                                                          ? Colors.white
-                                                          : Colors.black,
+                                                      color:
+                                                          results['thirdQuestion'] ==
+                                                                  'Burn Fat'
+                                                              ? Colors.white
+                                                              : Colors.black,
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
@@ -547,18 +584,25 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 2
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['thirdQuestion'] ==
+                                                                'Balanced'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 2),
+                                                        () => results[
+                                                                'thirdQuestion'] =
+                                                            'Balanced'),
                                                     child: Text(
                                                       "Balanced",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 2
-                                                              ? Colors.white
-                                                              : Colors.black),
+                                                          color:
+                                                              results['thirdQuestion'] ==
+                                                                      'Balanced'
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
                                                     ),
                                                   ),
                                                 ),
@@ -569,9 +613,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
-                                                    color: result[0] == 2
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['thirdQuestion'] ==
+                                                                'Balanced'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -602,9 +648,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
-                                                      color: result[0] == 2
-                                                          ? Colors.white
-                                                          : Colors.black,
+                                                      color:
+                                                          results['thirdQuestion'] ==
+                                                                  'Balanced'
+                                                              ? Colors.white
+                                                              : Colors.black,
                                                       width: 35.0,
                                                       height: 35.0,
                                                     ),
@@ -621,16 +669,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 3
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['thirdQuestion'] ==
+                                                                'Improve Cardio'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 3),
+                                                        () => results[
+                                                                'thirdQuestion'] =
+                                                            'Improve Cardio'),
                                                     child: Text(
                                                       "Improve Cardio",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 3
+                                                          color: results[
+                                                                      'thirdQuestion'] ==
+                                                                  'Improve Cardio'
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
@@ -643,9 +697,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
-                                                    color: result[0] == 3
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['thirdQuestion'] ==
+                                                                'Improve Cardio'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () {
                                                       Navigator.of(context)
                                                           .push(HeroDialogRoute(
@@ -676,7 +732,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
-                                                      color: result[0] == 3
+                                                      color: results[
+                                                                  'thirdQuestion'] ==
+                                                              'Improve Cardio'
                                                           ? Colors.white
                                                           : Colors.black,
                                                       width: 35.0,
@@ -695,16 +753,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 4
+                                                    color: results[
+                                                                'thirdQuestion'] ==
+                                                            'Improve Strength'
                                                         ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 4),
+                                                        () => results[
+                                                                'thirdQuestion'] =
+                                                            'Improve Strength'),
                                                     child: Text(
                                                       "Improve Strength",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 4
+                                                          color: results[
+                                                                      'thirdQuestion'] ==
+                                                                  'Improve Strength'
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
@@ -717,7 +781,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child:
                                                     Builder(builder: (context) {
                                                   return RaisedButton(
-                                                    color: result[0] == 4
+                                                    color: results[
+                                                                'thirdQuestion'] ==
+                                                            'Improve Strength'
                                                         ? Color(0xFF00BFFF)
                                                         : Colors.white,
                                                     onPressed: () {
@@ -750,7 +816,9 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                         EdgeInsets.all(0.0),
                                                     child: Image.asset(
                                                       'assets/images/info_icon.png',
-                                                      color: result[0] == 4
+                                                      color: results[
+                                                                  'thirdQuestion'] ==
+                                                              'Improve Strength'
                                                           ? Colors.white
                                                           : Colors.black,
                                                       width: 35.0,
@@ -816,17 +884,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   child: Builder(
                                                       builder: (context) {
                                                     return RaisedButton(
-                                                      color: result[0] == 0
+                                                      color: results[
+                                                                  'fifthQuestion'] ==
+                                                              'Vegan'
                                                           ? Color(0xFF00BFFF)
                                                           : Colors.white,
                                                       onPressed: () => setState(
-                                                          () => result[0] = 0),
+                                                          () => results[
+                                                                  'fifthQuestion'] =
+                                                              'Vegan'),
                                                       child: Text(
                                                         "Vegan",
                                                         style: TextStyle(
                                                             fontSize: 30,
-                                                            color: result[0] ==
-                                                                    0
+                                                            color: results[
+                                                                        'fifthQuestion'] ==
+                                                                    'Vegan'
                                                                 ? Colors.white
                                                                 : Colors.black),
                                                       ),
@@ -844,16 +917,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 1
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['fifthQuestion'] ==
+                                                                'Vegetarian'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 1),
+                                                        () => results[
+                                                                'fifthQuestion'] =
+                                                            'Vegetarian'),
                                                     child: Text(
                                                       "Vegetarian",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 1
+                                                          color: results[
+                                                                      'fifthQuestion'] ==
+                                                                  'Vegetarian'
                                                               ? Colors.white
                                                               : Colors.black),
                                                     ),
@@ -870,18 +949,25 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 2
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['fifthQuestion'] ==
+                                                                'None'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 2),
+                                                        () => results[
+                                                                'fifthQuestion'] =
+                                                            'None'),
                                                     child: Text(
                                                       "None",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 2
-                                                              ? Colors.white
-                                                              : Colors.black),
+                                                          color:
+                                                              results['fifthQuestion'] ==
+                                                                      'None'
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
                                                     ),
                                                   ),
                                                 ),
@@ -947,24 +1033,28 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   child: Builder(
                                                       builder: (context) {
                                                     return RaisedButton(
-                                                      color: secondResult[0] ==
+                                                      color: equipmentResults[
+                                                                  0] ==
                                                               "Dumbbells"
                                                           ? Color(0xFF00BFFF)
                                                           : Colors.white,
-                                                      onPressed: () => setState(
-                                                          () => secondResult[
-                                                                      0] ==
-                                                                  "Dumbbells"
-                                                              ? secondResult[
-                                                                  0] = ""
-                                                              : secondResult[
-                                                                      0] =
-                                                                  "Dumbbells"),
+                                                      onPressed: () => {
+                                                        setState(() => equipmentResults
+                                                                .containsValue(
+                                                                    "Dumbbells")
+                                                            ? equipmentResults
+                                                                .remove(0)
+                                                            : equipmentResults[
+                                                                    0] =
+                                                                "Dumbbells"),
+                                                        results['seventhQuestion'] =
+                                                            equipmentResults,
+                                                      },
                                                       child: Text(
                                                         "Dumbbells",
                                                         style: TextStyle(
                                                             fontSize: 30,
-                                                            color: secondResult[
+                                                            color: equipmentResults[
                                                                         0] ==
                                                                     "Dumbbells"
                                                                 ? Colors.white
@@ -984,23 +1074,31 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: secondResult[1] ==
-                                                            "Barbell"
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
-                                                    onPressed: () => setState(
-                                                        () => secondResult[1] ==
+                                                    color:
+                                                        equipmentResults[1] ==
                                                                 "Barbell"
-                                                            ? secondResult[1] =
-                                                                ""
-                                                            : secondResult[1] =
-                                                                "Barbell"),
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
+                                                    onPressed: () => {
+                                                      setState(() =>
+                                                          equipmentResults
+                                                                  .containsValue(
+                                                                      "Barbell")
+                                                              ? equipmentResults
+                                                                  .remove(1)
+                                                              : equipmentResults[
+                                                                      1] =
+                                                                  "Barbell"),
+                                                      results['seventhQuestion'] =
+                                                          equipmentResults
+                                                    },
                                                     child: Text(
                                                       "Barbell",
                                                       style: TextStyle(
                                                           fontSize: 30,
                                                           color:
-                                                              secondResult[1] ==
+                                                              equipmentResults[
+                                                                          1] ==
                                                                       "Barbell"
                                                                   ? Colors.white
                                                                   : Colors
@@ -1019,23 +1117,30 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: secondResult[2] ==
-                                                            "Bench"
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
-                                                    onPressed: () => setState(
-                                                        () => secondResult[2] ==
+                                                    color:
+                                                        equipmentResults[2] ==
                                                                 "Bench"
-                                                            ? secondResult[2] =
-                                                                ""
-                                                            : secondResult[2] =
-                                                                "Bench"),
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
+                                                    onPressed: () => {
+                                                      setState(() =>
+                                                          equipmentResults
+                                                                  .containsValue(
+                                                                      "Bench")
+                                                              ? equipmentResults
+                                                                  .remove(2)
+                                                              : equipmentResults[
+                                                                  2] = "Bench"),
+                                                      results['seventhQuestion'] =
+                                                          equipmentResults
+                                                    },
                                                     child: Text(
                                                       "Bench",
                                                       style: TextStyle(
                                                           fontSize: 30,
                                                           color:
-                                                              secondResult[2] ==
+                                                              equipmentResults[
+                                                                          2] ==
                                                                       "Bench"
                                                                   ? Colors.white
                                                                   : Colors
@@ -1054,22 +1159,28 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: secondResult[3] ==
-                                                            "Squat Rack"
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
-                                                    onPressed: () => setState(
-                                                        () => secondResult[3] ==
+                                                    color:
+                                                        equipmentResults[3] ==
                                                                 "Squat Rack"
-                                                            ? secondResult[3] =
-                                                                ""
-                                                            : secondResult[3] =
-                                                                "Squat Rack"),
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
+                                                    onPressed: () => {
+                                                      setState(() => equipmentResults
+                                                              .containsValue(
+                                                                  "Squat Rack")
+                                                          ? equipmentResults
+                                                              .remove(3)
+                                                          : equipmentResults[
+                                                                  3] =
+                                                              "Squat Rack"),
+                                                      results['seventhQuestion'] =
+                                                          equipmentResults
+                                                    },
                                                     child: Text(
                                                       "Squat Rack",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: secondResult[
+                                                          color: equipmentResults[
                                                                       3] ==
                                                                   "Squat Rack"
                                                               ? Colors.white
@@ -1088,22 +1199,28 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: secondResult[4] ==
+                                                    color: equipmentResults[
+                                                                4] ==
                                                             "Resistence Bands"
                                                         ? Color(0xFF00BFFF)
                                                         : Colors.white,
-                                                    onPressed: () => setState(
-                                                        () => secondResult[4] ==
-                                                                "Resistence Bands"
-                                                            ? secondResult[4] =
-                                                                ""
-                                                            : secondResult[4] =
-                                                                "Resistence Bands"),
+                                                    onPressed: () => {
+                                                      setState(() => equipmentResults
+                                                              .containsValue(
+                                                                  "Resistence Bands")
+                                                          ? equipmentResults
+                                                              .remove(4)
+                                                          : equipmentResults[
+                                                                  4] =
+                                                              "Resistence Bands"),
+                                                      results['seventhQuestion'] =
+                                                          equipmentResults
+                                                    },
                                                     child: Text(
                                                       "Resistence Bands",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: secondResult[
+                                                          color: equipmentResults[
                                                                       4] ==
                                                                   "Resistence Bands"
                                                               ? Colors.white
@@ -1122,23 +1239,31 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: secondResult[5] ==
-                                                            "Full Gym"
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
-                                                    onPressed: () => setState(
-                                                        () => secondResult[5] ==
+                                                    color:
+                                                        equipmentResults[5] ==
                                                                 "Full Gym"
-                                                            ? secondResult[5] =
-                                                                ""
-                                                            : secondResult[5] =
-                                                                "Full Gym"),
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
+                                                    onPressed: () => {
+                                                      setState(() =>
+                                                          equipmentResults
+                                                                  .containsValue(
+                                                                      "Full Gym")
+                                                              ? equipmentResults
+                                                                  .remove(5)
+                                                              : equipmentResults[
+                                                                      5] =
+                                                                  "Full Gym"),
+                                                      results['seventhQuestion'] =
+                                                          equipmentResults
+                                                    },
                                                     child: Text(
                                                       "Full Gym",
                                                       style: TextStyle(
                                                           fontSize: 30,
                                                           color:
-                                                              secondResult[5] ==
+                                                              equipmentResults[
+                                                                          5] ==
                                                                       "Full Gym"
                                                                   ? Colors.white
                                                                   : Colors
@@ -1157,22 +1282,28 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: secondResult[6] ==
+                                                    color: equipmentResults[
+                                                                6] ==
                                                             "Somewhere to Run"
                                                         ? Color(0xFF00BFFF)
                                                         : Colors.white,
-                                                    onPressed: () => setState(
-                                                        () => secondResult[6] ==
-                                                                "Somewhere to Run"
-                                                            ? secondResult[6] =
-                                                                ""
-                                                            : secondResult[6] =
-                                                                "Somewhere to Run"),
+                                                    onPressed: () => {
+                                                      setState(() => equipmentResults
+                                                              .containsValue(
+                                                                  "Somewhere to Run")
+                                                          ? equipmentResults
+                                                              .remove(6)
+                                                          : equipmentResults[
+                                                                  6] =
+                                                              "Somewhere to Run"),
+                                                      results['seventhQuestion'] =
+                                                          equipmentResults
+                                                    },
                                                     child: Text(
                                                       "Somewhere to Run",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: secondResult[
+                                                          color: equipmentResults[
                                                                       6] ==
                                                                   "Somewhere to Run"
                                                               ? Colors.white
@@ -1213,7 +1344,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               Container(
                                   margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
                                   child: Text(
-                                    "How many days do you want to workout?",
+                                    "How many days do you want to workout per week?",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 30,
@@ -1242,17 +1373,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   child: Builder(
                                                       builder: (context) {
                                                     return RaisedButton(
-                                                      color: result[0] == 0
+                                                      color: results[
+                                                                  'eighthQuestion'] ==
+                                                              '3'
                                                           ? Color(0xFF00BFFF)
                                                           : Colors.white,
                                                       onPressed: () => setState(
-                                                          () => result[0] = 0),
+                                                          () => results[
+                                                                  'eighthQuestion'] =
+                                                              '3'),
                                                       child: Text(
                                                         "3",
                                                         style: TextStyle(
                                                             fontSize: 30,
-                                                            color: result[0] ==
-                                                                    0
+                                                            color: results[
+                                                                        'eighthQuestion'] ==
+                                                                    '3'
                                                                 ? Colors.white
                                                                 : Colors.black),
                                                       ),
@@ -1270,18 +1406,25 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 1
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['eighthQuestion'] ==
+                                                                '4'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 1),
+                                                        () => results[
+                                                                'eighthQuestion'] =
+                                                            '4'),
                                                     child: Text(
                                                       "4",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 1
-                                                              ? Colors.white
-                                                              : Colors.black),
+                                                          color:
+                                                              results['eighthQuestion'] ==
+                                                                      '4'
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
                                                     ),
                                                   ),
                                                 ),
@@ -1296,18 +1439,25 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 2
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['eighthQuestion'] ==
+                                                                '5'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 2),
+                                                        () => results[
+                                                                'eighthQuestion'] =
+                                                            '5'),
                                                     child: Text(
                                                       "5",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 2
-                                                              ? Colors.white
-                                                              : Colors.black),
+                                                          color:
+                                                              results['eighthQuestion'] ==
+                                                                      '5'
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
                                                     ),
                                                   ),
                                                 ),
@@ -1322,18 +1472,25 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 child: Container(
                                                   height: double.infinity,
                                                   child: RaisedButton(
-                                                    color: result[0] == 2
-                                                        ? Color(0xFF00BFFF)
-                                                        : Colors.white,
+                                                    color:
+                                                        results['eighthQuestion'] ==
+                                                                '6'
+                                                            ? Color(0xFF00BFFF)
+                                                            : Colors.white,
                                                     onPressed: () => setState(
-                                                        () => result[0] = 2),
+                                                        () => results[
+                                                                'eighthQuestion'] =
+                                                            '6'),
                                                     child: Text(
                                                       "6",
                                                       style: TextStyle(
                                                           fontSize: 30,
-                                                          color: result[0] == 2
-                                                              ? Colors.white
-                                                              : Colors.black),
+                                                          color:
+                                                              results['eighthQuestion'] ==
+                                                                      '6'
+                                                                  ? Colors.white
+                                                                  : Colors
+                                                                      .black),
                                                     ),
                                                   ),
                                                 ),
