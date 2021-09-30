@@ -33,12 +33,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   UpdateType updateType;
   var result = List(5);
   var secondResult = List(7);
+  List<bool> isSelected = List.generate(2, (index) => false);
+  TextEditingController _controller;
 
   @override
   void initState() {
     liquidController = LiquidController();
+    _controller = TextEditingController();
     super.initState();
     result[0] = -1; //no buttons chosen yet (page1)
+    isSelected[0] = true;
   }
 
   Widget _buildDot(int index) {
@@ -72,6 +76,117 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
           children: <Widget>[
             LiquidSwipe(
               pages: [
+                // FIRST QUESTION STARTS HERE
+                SizedBox.expand(
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                  child: Text(
+                                    "Awesome. Now that your account is created, let's start building YourPlan.",
+                                    textAlign: TextAlign.center,
+                                    style: QuestionnairePage.style,
+                                  )),
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "Please input the following information <3",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              ToggleButtons(
+                                children: <Widget>[
+                                  Text("Imperial"),
+                                  Text("Metric"),
+                                ],
+                                onPressed: (int index) {
+                                  setState(() {
+                                    for (int buttonIndex = 0;
+                                        buttonIndex < isSelected.length;
+                                        buttonIndex++) {
+                                      if (buttonIndex == index) {
+                                        isSelected[buttonIndex] = true;
+                                      } else {
+                                        isSelected[buttonIndex] = false;
+                                      }
+                                    }
+                                  });
+                                },
+                                isSelected: isSelected,
+                              ),
+                              Container(
+                                child: Column(
+                                  children: <Widget>[
+                                    Container(
+                                        margin:
+                                            EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                        child: Text(
+                                          "Please input the following information <3",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.w500),
+                                        )),
+                                    if (isSelected[0])
+                                      Container(
+                                        width: 100,
+                                        child: Row(
+                                          children: <Widget>[
+                                            Expanded(
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  labelText: 'ft',
+                                                ),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  border: OutlineInputBorder(),
+                                                  labelText: 'in',
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    if (isSelected[1])
+                                      Container(
+                                        width: 100,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'cm',
+                                          ),
+                                        ),
+                                      ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 //second page
                 SizedBox.expand(
                   child: Container(
@@ -1462,7 +1577,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                   Expanded(child: SizedBox()),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List<Widget>.generate(5, _buildDot),
+                    children: List<Widget>.generate(10, _buildDot),
                   ),
                 ],
               ),
