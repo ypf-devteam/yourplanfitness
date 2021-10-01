@@ -134,7 +134,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                         margin:
                                             EdgeInsets.fromLTRB(20, 10, 20, 0),
                                         child: Text(
-                                          "Please input the following information <3",
+                                          "Height",
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               fontSize: 30,
@@ -164,6 +164,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           ],
                                         ),
                                       ),
+                                    Container(
+                                        margin:
+                                            EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                        child: Text(
+                                          "Weight",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.w500),
+                                        )),
                                     if (isSelected[1])
                                       Container(
                                         width: 100,
