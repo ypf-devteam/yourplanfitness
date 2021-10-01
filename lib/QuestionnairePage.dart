@@ -142,7 +142,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                         )),
                                     if (isSelected[0])
                                       Container(
-                                        width: 100,
+                                        width: 200,
                                         child: Row(
                                           children: <Widget>[
                                             Expanded(
@@ -164,6 +164,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           ],
                                         ),
                                       ),
+                                    if (isSelected[1])
+                                      Container(
+                                        width: 200,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'cm',
+                                          ),
+                                        ),
+                                      ),
                                     Container(
                                         margin:
                                             EdgeInsets.fromLTRB(20, 10, 20, 0),
@@ -174,16 +184,45 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                               fontSize: 30,
                                               fontWeight: FontWeight.w500),
                                         )),
-                                    if (isSelected[1])
+                                    if (isSelected[0])
                                       Container(
-                                        width: 100,
+                                        width: 200,
                                         child: TextField(
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
-                                            labelText: 'cm',
+                                            labelText: 'lbs',
                                           ),
                                         ),
                                       ),
+                                    if (isSelected[1])
+                                      Container(
+                                        width: 200,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            border: OutlineInputBorder(),
+                                            labelText: 'kg',
+                                          ),
+                                        ),
+                                      ),
+                                    Container(
+                                        margin:
+                                            EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                        child: Text(
+                                          "Age",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 30,
+                                              fontWeight: FontWeight.w500),
+                                        )),
+                                    Container(
+                                      width: 200,
+                                      child: TextField(
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          labelText: 'Age',
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )
@@ -1742,7 +1781,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                   Expanded(child: SizedBox()),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List<Widget>.generate(10, _buildDot),
+                    children: List<Widget>.generate(8, _buildDot),
                   ),
                 ],
               ),
