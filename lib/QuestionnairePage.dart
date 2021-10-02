@@ -32,6 +32,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   LiquidController liquidController;
   UpdateType updateType;
   List<bool> isSelected = List.generate(2, (index) => false);
+  var measurementsResults = Map();
   var equipmentResults = Map();
   var results = Map();
   //Lists for anything TextField related
@@ -132,8 +133,12 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                         buttonIndex++) {
                                       if (buttonIndex == index) {
                                         isSelected[buttonIndex] = true;
+                                        measurementsResults['unitSystem'] =
+                                            'Metric';
                                       } else {
                                         isSelected[buttonIndex] = false;
+                                        measurementsResults['unitSystem'] =
+                                            'Imperial';
                                       }
                                     }
                                   });
@@ -160,6 +165,15 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           children: <Widget>[
                                             Expanded(
                                               child: TextField(
+                                                onChanged: (input) {
+                                                  if (input.isEmpty) {
+                                                    measurementsResults
+                                                        .remove('ft');
+                                                  } else {
+                                                    measurementsResults['ft'] =
+                                                        input;
+                                                  }
+                                                },
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(),
                                                   labelText: 'ft',
@@ -168,6 +182,15 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                             ),
                                             Expanded(
                                               child: TextField(
+                                                onChanged: (input) {
+                                                  if (input.isEmpty) {
+                                                    measurementsResults
+                                                        .remove('in');
+                                                  } else {
+                                                    measurementsResults['in'] =
+                                                        input;
+                                                  }
+                                                },
                                                 decoration: InputDecoration(
                                                   border: OutlineInputBorder(),
                                                   labelText: 'in',
@@ -181,6 +204,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                       Container(
                                         width: 200,
                                         child: TextField(
+                                          onChanged: (input) {
+                                            if (input.isEmpty) {
+                                              measurementsResults.remove('cm');
+                                            } else {
+                                              measurementsResults['cm'] = input;
+                                            }
+                                          },
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'cm',
@@ -201,6 +231,14 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                       Container(
                                         width: 200,
                                         child: TextField(
+                                          onChanged: (input) {
+                                            if (input.isEmpty) {
+                                              measurementsResults.remove('lbs');
+                                            } else {
+                                              measurementsResults['lbs'] =
+                                                  input;
+                                            }
+                                          },
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'lbs',
@@ -211,6 +249,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                       Container(
                                         width: 200,
                                         child: TextField(
+                                          onChanged: (input) {
+                                            if (input.isEmpty) {
+                                              measurementsResults.remove('kg');
+                                            } else {
+                                              measurementsResults['kg'] = input;
+                                            }
+                                          },
                                           decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             labelText: 'kg',
@@ -230,6 +275,13 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                     Container(
                                       width: 200,
                                       child: TextField(
+                                        onChanged: (input) {
+                                          if (input.isEmpty) {
+                                            measurementsResults.remove('age');
+                                          } else {
+                                            measurementsResults['age'] = input;
+                                          }
+                                        },
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(),
                                           labelText: 'Age',
@@ -261,13 +313,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                         Expanded(
                           child: Column(
                             children: <Widget>[
-                              Container(
-                                  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
-                                  child: Text(
-                                    "Awesome. Now that your account is created, let's start building YourPlan.",
-                                    textAlign: TextAlign.center,
-                                    style: QuestionnairePage.style,
-                                  )),
                               Container(
                                   margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
                                   child: Text(
@@ -1053,6 +1098,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   ),
                                   onSubmitted: (String val) async {
                                     addAllergy(allergyList, allergyController);
+                                    results['allergies'] = allergyList;
                                   },
                                 ),
                               ),
@@ -1261,6 +1307,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   onSubmitted: (String val) async {
                                     addAllergy(
                                         dislikesList, dislikesController);
+                                    results['dislikes'] = dislikesList;
                                   },
                                 ),
                               ),
