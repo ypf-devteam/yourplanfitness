@@ -34,6 +34,19 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   List<bool> isSelected = List.generate(2, (index) => false);
   var equipmentResults = Map();
   var results = Map();
+  //Lists for anything TextField related
+  List<String> allergyList = <String>[];
+  List<String> dislikesList = <String>[];
+
+  //TextField controllers
+  TextEditingController allergyController = TextEditingController();
+  TextEditingController dislikesController = TextEditingController();
+
+  void addAllergy(List list, TextEditingController controller) {
+    setState(() {
+      list.insert(list.length, controller.text);
+    });
+  }
 
   @override
   void initState() {
@@ -1003,6 +1016,68 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                     ),
                   ),
                 ),
+                //ALLERGY PAGE
+                SizedBox.expand(
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "Do you have any allergies?",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              Container(
+                                width: 400,
+                                //ALLERGY TEXT FIELD
+                                child: TextField(
+                                  controller: allergyController,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    labelText:
+                                        'Please enter your allergy(s) here',
+                                    hintText: 'Press enter when completed',
+                                  ),
+                                  onSubmitted: (String val) async {
+                                    addAllergy(allergyList, allergyController);
+                                  },
+                                ),
+                              ),
+                              Expanded(
+                                child: ListView.builder(
+                                    itemCount: allergyList.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Container(
+                                        height: 50,
+                                        width: 400,
+                                        color: Color(0xFF0BD600),
+                                        child: Center(
+                                            child:
+                                                Text('${allergyList[index]}')),
+                                      );
+                                    }),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
                 //fifth page
                 SizedBox.expand(
                   child: Container(
@@ -1144,6 +1219,69 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             ],
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                ),
+                //DISLIKES PAGE
+                SizedBox.expand(
+                  child: Container(
+                    color: Colors.grey[50],
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.all(20.0),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: <Widget>[
+                              Container(
+                                  margin: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  child: Text(
+                                    "Do you have any dislikes?",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w500),
+                                  )),
+                              Container(
+                                width: 400,
+                                //ALLERGY TEXT FIELD
+                                child: TextField(
+                                  controller: dislikesController,
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    labelText:
+                                        'Please enter your dislikes here',
+                                    hintText: 'Press enter when completed',
+                                  ),
+                                  onSubmitted: (String val) async {
+                                    addAllergy(
+                                        dislikesList, dislikesController);
+                                  },
+                                ),
+                              ),
+                              Expanded(
+                                child: ListView.builder(
+                                    itemCount: dislikesList.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Container(
+                                        height: 50,
+                                        width: 400,
+                                        color: Color(0xFF0BD600),
+                                        child: Center(
+                                            child:
+                                                Text('${dislikesList[index]}')),
+                                      );
+                                    }),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
