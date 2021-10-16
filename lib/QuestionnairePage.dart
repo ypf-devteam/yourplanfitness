@@ -290,10 +290,33 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                     ),
                                   ],
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ),
+                        //insert next and back HERE
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {}, child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? 0
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Next')),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ),
@@ -1960,7 +1983,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
               enableLoop: false,
             ),
             Padding(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.all(35),
               child: Column(
                 children: <Widget>[
                   Expanded(child: SizedBox()),
