@@ -310,7 +310,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
                                                 7
-                                            ? 0
+                                            ? liquidController.currentPage
                                             : liquidController.currentPage + 1);
                                   },
                                   child: Text('Next')),

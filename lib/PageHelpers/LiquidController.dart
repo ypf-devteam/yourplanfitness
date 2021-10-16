@@ -15,7 +15,7 @@ class LiquidController {
     provider.jumpToPage(page);
   }
 
-  animateToPage({int page, int duration = 1500}) {
+  animateToPage({int page, int duration = 650}) {
     provider.animateToPage(page, duration);
   }
 
