@@ -597,9 +597,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                               //   }),
                                               // ),
                                             ]))),
-                                    SizedBox(
-                                      height: 55,
-                                    ),
                                   ],
                                 ),
                               ),
@@ -1101,9 +1098,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 }),
                                               ),
                                             ]))),
-                                    SizedBox(
-                                      height: 55,
-                                    ),
                                   ],
                                 ),
                               ),
@@ -1369,9 +1363,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 ),
                                               ),
                                             ]))),
-                                    SizedBox(
-                                      height: 55,
-                                    ),
                                   ],
                                 ),
                               ),
@@ -1833,9 +1824,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 ),
                                               ),
                                             ]))),
-                                    SizedBox(
-                                      height: 55,
-                                    ),
                                   ],
                                 ),
                               ),
@@ -2046,9 +2034,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 ),
                                               ),
                                             ]))),
-                                    SizedBox(
-                                      height: 55,
-                                    ),
                                   ],
                                 ),
                               ),
@@ -2082,102 +2067,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                             : liquidController.currentPage + 1);
                                   },
                                   child: Text('Finish')),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox.expand(
-                  //page 3
-                  child: Container(
-                    color: Colors.grey[50],
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(20.0),
-                        ),
-                        Column(
-                          children: <Widget>[
-                            Text(
-                              "Question 2:",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "____",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "____",
-                              style: QuestionnairePage.style,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox.expand(
-                  //page 4
-                  child: Container(
-                    color: Colors.grey[50],
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(20.0),
-                        ),
-                        Column(
-                          children: <Widget>[
-                            Text(
-                              "Question 3: ",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "_____",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "______",
-                              style: QuestionnairePage.style,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox.expand(
-                  //page 5
-                  child: Container(
-                    color: Colors.grey[50],
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: <Widget>[
-                        Padding(
-                          padding: EdgeInsets.all(20.0),
-                        ),
-                        Column(
-                          children: <Widget>[
-                            Text(
-                              "Question 4: ",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "______",
-                              style: QuestionnairePage.style,
-                            ),
-                            Text(
-                              "_______",
-                              style: QuestionnairePage.style,
                             ),
                           ],
                         ),
