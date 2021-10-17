@@ -300,8 +300,6 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                           children: <Widget>[
                             Padding(
                               padding: EdgeInsets.all(20.0),
-                              child: ElevatedButton(
-                                  onPressed: () {}, child: Text('Back')),
                             ),
                             Padding(
                               padding: EdgeInsets.all(20.0),
@@ -316,7 +314,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                   child: Text('Next')),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -605,6 +603,36 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               ),
                             ],
                           ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage -
+                                                    1 >=
+                                                0
+                                            ? liquidController.currentPage - 1
+                                            : liquidController.currentPage);
+                                  },
+                                  child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? liquidController.currentPage
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Next')),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -1080,6 +1108,36 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             ],
                           ),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage -
+                                                    1 !=
+                                                0
+                                            ? liquidController.currentPage - 1
+                                            : liquidController.currentPage);
+                                  },
+                                  child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? liquidController.currentPage
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Next')),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -1142,7 +1200,37 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               ),
                             ],
                           ),
-                        )
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage -
+                                                    1 !=
+                                                0
+                                            ? liquidController.currentPage - 1
+                                            : liquidController.currentPage);
+                                  },
+                                  child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? liquidController.currentPage
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Next')),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -1288,6 +1376,36 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             ],
                           ),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage -
+                                                    1 !=
+                                                0
+                                            ? liquidController.currentPage - 1
+                                            : liquidController.currentPage);
+                                  },
+                                  child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? liquidController.currentPage
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Next')),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -1351,7 +1469,37 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               ),
                             ],
                           ),
-                        )
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage -
+                                                    1 !=
+                                                0
+                                            ? liquidController.currentPage - 1
+                                            : liquidController.currentPage);
+                                  },
+                                  child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? liquidController.currentPage
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Next')),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -1692,6 +1840,36 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             ],
                           ),
                         ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage -
+                                                    1 !=
+                                                0
+                                            ? liquidController.currentPage - 1
+                                            : liquidController.currentPage);
+                                  },
+                                  child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? liquidController.currentPage
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Next')),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),
@@ -1874,6 +2052,36 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                               ),
                             ],
                           ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage -
+                                                    1 !=
+                                                0
+                                            ? liquidController.currentPage - 1
+                                            : liquidController.currentPage);
+                                  },
+                                  child: Text('Back')),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(20.0),
+                              child: ElevatedButton(
+                                  onPressed: () {
+                                    liquidController.animateToPage(
+                                        page: liquidController.currentPage + 1 >
+                                                7
+                                            ? liquidController.currentPage
+                                            : liquidController.currentPage + 1);
+                                  },
+                                  child: Text('Finish')),
+                            ),
+                          ],
                         ),
                       ],
                     ),
