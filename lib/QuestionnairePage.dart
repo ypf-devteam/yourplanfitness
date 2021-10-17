@@ -310,6 +310,8 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                 7
                                             ? liquidController.currentPage
                                             : liquidController.currentPage + 1);
+                                    results['firstQuestion'] =
+                                        measurementsResults;
                                   },
                                   child: Text('Next')),
                             ),
