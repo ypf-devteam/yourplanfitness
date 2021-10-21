@@ -35,9 +35,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
   var measurementsResults = Map();
   var equipmentResults = Map();
   var results = Map();
+
   //Lists for anything TextField related
   List<String> allergyList = <String>[];
   List<String> dislikesList = <String>[];
+  List<bool> firstAnswersCopy = List.generate(5, (index) => false);
 
   //TextField controllers
   TextEditingController allergyController = TextEditingController();
@@ -77,6 +79,23 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
         ),
       ),
     );
+  }
+
+  checkFirstAnswers() {
+    bool noInput = false;
+    for (int i = 0; i < firstAnswersCopy.length; i++) {
+      if (!firstAnswersCopy[i]) {
+        noInput = true;
+        break;
+      }
+    }
+    return noInput;
+  }
+
+  resetQuestionOne() {
+    for (int i = 0; i < firstAnswersCopy.length; i++) {
+      firstAnswersCopy[i] = false;
+    }
   }
 
   @override
@@ -135,10 +154,12 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                         isSelected[buttonIndex] = true;
                                         measurementsResults['unitSystem'] =
                                             'Metric';
+                                        firstAnswersCopy[0] = true;
                                       } else {
                                         isSelected[buttonIndex] = false;
                                         measurementsResults['unitSystem'] =
                                             'Imperial';
+                                        firstAnswersCopy[0] = true;
                                       }
                                     }
                                   });
@@ -169,9 +190,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   if (input.isEmpty) {
                                                     measurementsResults
                                                         .remove('ft');
+                                                    firstAnswersCopy[1] = false;
                                                   } else {
                                                     measurementsResults['ft'] =
                                                         input;
+                                                    firstAnswersCopy[1] = true;
                                                   }
                                                 },
                                                 decoration: InputDecoration(
@@ -186,9 +209,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   if (input.isEmpty) {
                                                     measurementsResults
                                                         .remove('in');
+                                                    firstAnswersCopy[2] = false;
                                                   } else {
                                                     measurementsResults['in'] =
                                                         input;
+                                                    firstAnswersCopy[2] = true;
                                                   }
                                                 },
                                                 decoration: InputDecoration(
@@ -207,8 +232,12 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           onChanged: (input) {
                                             if (input.isEmpty) {
                                               measurementsResults.remove('cm');
+                                              firstAnswersCopy[1] = false;
+                                              firstAnswersCopy[2] = false;
                                             } else {
                                               measurementsResults['cm'] = input;
+                                              firstAnswersCopy[2] = true;
+                                              firstAnswersCopy[1] = true;
                                             }
                                           },
                                           decoration: InputDecoration(
@@ -234,9 +263,11 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           onChanged: (input) {
                                             if (input.isEmpty) {
                                               measurementsResults.remove('lbs');
+                                              firstAnswersCopy[3] = false;
                                             } else {
                                               measurementsResults['lbs'] =
                                                   input;
+                                              firstAnswersCopy[3] = true;
                                             }
                                           },
                                           decoration: InputDecoration(
@@ -252,8 +283,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           onChanged: (input) {
                                             if (input.isEmpty) {
                                               measurementsResults.remove('kg');
+                                              firstAnswersCopy[3] = false;
                                             } else {
                                               measurementsResults['kg'] = input;
+                                              firstAnswersCopy[3] = true;
                                             }
                                           },
                                           decoration: InputDecoration(
@@ -278,8 +311,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                         onChanged: (input) {
                                           if (input.isEmpty) {
                                             measurementsResults.remove('age');
+                                            firstAnswersCopy[4] = false;
                                           } else {
                                             measurementsResults['age'] = input;
+                                            firstAnswersCopy[4] = true;
                                           }
                                         },
                                         decoration: InputDecoration(
@@ -309,13 +344,18 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           .resolveWith<Color>(
                                               (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
-                                    liquidController.animateToPage(
-                                        page: liquidController.currentPage + 1 >
-                                                7
-                                            ? liquidController.currentPage
-                                            : liquidController.currentPage + 1);
-                                    results['firstQuestion'] =
-                                        measurementsResults;
+                                    if (!checkFirstAnswers()) {
+                                      liquidController.animateToPage(
+                                          page: liquidController.currentPage +
+                                                      1 >
+                                                  7
+                                              ? liquidController.currentPage
+                                              : liquidController.currentPage +
+                                                  1);
+
+                                      results['firstQuestion'] =
+                                          measurementsResults;
+                                    }
                                   },
                                   child: Text('Next')),
                             ),
@@ -618,6 +658,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           .resolveWith<Color>(
                                               (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
+                                    resetQuestionOne();
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
                                                     1 >=
@@ -635,11 +676,19 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           .resolveWith<Color>(
                                               (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
-                                    liquidController.animateToPage(
-                                        page: liquidController.currentPage + 1 >
-                                                7
-                                            ? liquidController.currentPage
-                                            : liquidController.currentPage + 1);
+                                    if (results['secondQuestion'] == "Beginner" ||
+                                        results['secondQuestion'] ==
+                                            "Advanced" ||
+                                        results['secondQuestion'] ==
+                                            "Intermediate") {
+                                      liquidController.animateToPage(
+                                          page: liquidController.currentPage +
+                                                      1 >
+                                                  7
+                                              ? liquidController.currentPage
+                                              : liquidController.currentPage +
+                                                  1);
+                                    }
                                   },
                                   child: Text('Next')),
                             ),
@@ -1144,11 +1193,24 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           .resolveWith<Color>(
                                               (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
-                                    liquidController.animateToPage(
-                                        page: liquidController.currentPage + 1 >
-                                                7
-                                            ? liquidController.currentPage
-                                            : liquidController.currentPage + 1);
+                                    if (results['thirdQuestion'] ==
+                                            'Gain Muscle Mass' ||
+                                        results['thirdQuestion'] ==
+                                            'Burn Fat' ||
+                                        results['thirdQuestion'] ==
+                                            'Balanced' ||
+                                        results['thirdQuestion'] ==
+                                            'Improve Cardio' ||
+                                        results['thirdQuestion'] ==
+                                            'Improve Strength') {
+                                      liquidController.animateToPage(
+                                          page: liquidController.currentPage +
+                                                      1 >
+                                                  7
+                                              ? liquidController.currentPage
+                                              : liquidController.currentPage +
+                                                  1);
+                                    }
                                   },
                                   child: Text('Next')),
                             ),
@@ -1425,11 +1487,18 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           .resolveWith<Color>(
                                               (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
-                                    liquidController.animateToPage(
-                                        page: liquidController.currentPage + 1 >
-                                                7
-                                            ? liquidController.currentPage
-                                            : liquidController.currentPage + 1);
+                                    if (results['fifthQuestion'] == 'Vegan' ||
+                                        results['fifthQuestion'] ==
+                                            'Vegetarian' ||
+                                        results['fifthQuestion'] == 'None') {
+                                      liquidController.animateToPage(
+                                          page: liquidController.currentPage +
+                                                      1 >
+                                                  7
+                                              ? liquidController.currentPage
+                                              : liquidController.currentPage +
+                                                  1);
+                                    }
                                   },
                                   child: Text('Next')),
                             ),
@@ -2120,11 +2189,18 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                           .resolveWith<Color>(
                                               (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
-                                    liquidController.animateToPage(
-                                        page: liquidController.currentPage + 1 >
-                                                7
-                                            ? liquidController.currentPage
-                                            : liquidController.currentPage + 1);
+                                    if (results['eighthQuestion'] == '3' ||
+                                        results['eighthQuestion'] == '4' ||
+                                        results['eighthQuestion'] == '5' ||
+                                        results['eighthQuestion'] == '6') {
+                                      liquidController.animateToPage(
+                                          page: liquidController.currentPage +
+                                                      1 >
+                                                  7
+                                              ? liquidController.currentPage
+                                              : liquidController.currentPage +
+                                                  1);
+                                    }
                                   },
                                   child: Text('Finish')),
                             ),
