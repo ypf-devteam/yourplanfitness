@@ -107,15 +107,15 @@ class _LiquidSwipe extends State<LiquidSwipe> with TickerProviderStateMixin {
               waveType: widget.waveType,
               vertReveal: model.slidePercentVer,
             ),
-            PageDragger(
-              //Used for gesture control
-              fullTransitionPX: widget.fullTransitionValue,
-              enableSlideIcon: widget.enableSlideIcon,
-              slideIconWidget: widget.slideIconWidget,
-              iconPosition: widget.positionSlideIcon,
-              ignoreUserGestureWhileAnimating:
-                  widget.ignoreUserGestureWhileAnimating,
-            ), //PageDragger
+            // PageDragger(
+            //   //Used for gesture control
+            //   fullTransitionPX: widget.fullTransitionValue,
+            //   enableSlideIcon: widget.enableSlideIcon,
+            //   slideIconWidget: widget.slideIconWidget,
+            //   iconPosition: widget.positionSlideIcon,
+            //   ignoreUserGestureWhileAnimating:
+            //       widget.ignoreUserGestureWhileAnimating,
+            // ), //PageDragger
           ], //Widget//Stack
         );
       }),
