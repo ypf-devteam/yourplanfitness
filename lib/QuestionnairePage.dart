@@ -304,6 +304,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
@@ -609,6 +613,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
@@ -622,6 +630,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
@@ -1110,6 +1122,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
@@ -1123,6 +1139,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
@@ -1203,6 +1223,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
@@ -1216,6 +1240,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
@@ -1375,6 +1403,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
@@ -1388,6 +1420,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
@@ -1469,6 +1505,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
@@ -1482,6 +1522,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
@@ -1836,6 +1880,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
@@ -1849,6 +1897,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
@@ -2046,6 +2098,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage -
@@ -2059,6 +2115,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                             Padding(
                               padding: EdgeInsets.all(20.0),
                               child: ElevatedButton(
+                                  style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty
+                                          .resolveWith<Color>(
+                                              (states) => Color(0xFF00BFFF))),
                                   onPressed: () {
                                     liquidController.animateToPage(
                                         page: liquidController.currentPage + 1 >
