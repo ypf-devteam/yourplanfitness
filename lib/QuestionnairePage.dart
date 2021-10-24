@@ -1,9 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:your_plan_fitness/NavController.dart';
 import 'package:your_plan_fitness/liquid_swipe.dart';
 import 'package:your_plan_fitness/hero_dialog_route.dart';
 import 'package:your_plan_fitness/custom_rect_tween.dart';
 import 'package:your_plan_fitness/styles.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 class QuestionnairePage extends StatefulWidget {
   static final style = TextStyle(
@@ -49,6 +51,14 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     setState(() {
       list.insert(list.length, controller.text);
     });
+  }
+
+  final databaseReference = FirebaseDatabase.instance.reference();
+
+  DatabaseReference saveQuestionnaireResults() {
+    var id = databaseReference.child('test/').push();
+    id.set({"testing1": "hello", "testing2": "world"});
+    return id;
   }
 
   @override
@@ -2193,11 +2203,16 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                         results['eighthQuestion'] == '4' ||
                                         results['eighthQuestion'] == '5' ||
                                         results['eighthQuestion'] == '6') {
+                                      saveQuestionnaireResults();
                                       liquidController.animateToPage(
                                           page: liquidController.currentPage +
                                                       1 >
                                                   7
-                                              ? liquidController.currentPage
+                                              ? Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          NavController()))
                                               : liquidController.currentPage +
                                                   1);
                                     }
