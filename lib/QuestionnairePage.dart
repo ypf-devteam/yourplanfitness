@@ -196,6 +196,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   fontSize: 30,
                                                   fontWeight: FontWeight.w500),
                                             )),
+                                        Padding(
+                                          padding: EdgeInsets.fromLTRB(
+                                              0, 0, 0, 10.0),
+                                        ),
                                         if (isSelected[0])
                                           Container(
                                             width: 200,
@@ -287,6 +291,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   fontSize: 30,
                                                   fontWeight: FontWeight.w500),
                                             )),
+                                        Padding(
+                                          padding: EdgeInsets.fromLTRB(
+                                              0, 0, 0, 10.0),
+                                        ),
                                         if (isSelected[0])
                                           Container(
                                             width: 200,
@@ -343,6 +351,10 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                                   fontSize: 30,
                                                   fontWeight: FontWeight.w500),
                                             )),
+                                        Padding(
+                                          padding: EdgeInsets.fromLTRB(
+                                              0, 0, 0, 10.0),
+                                        ),
                                         Container(
                                           width: 200,
                                           child: TextField(
