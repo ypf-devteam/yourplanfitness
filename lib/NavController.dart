@@ -31,27 +31,30 @@ class _NavControllerState extends State<NavController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: pageController,
-        children: screens,
-        onPageChanged: onPageChanged,
-        physics: NeverScrollableScrollPhysics(),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        onTap: iconTapped,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.date_range_rounded), label: 'Tracking'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.fitness_center), label: 'Workouts'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.food_bank), label: 'Nutrition')
-        ],
-        currentIndex: currIndex,
-        selectedItemColor: Colors.black,
+    return new WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: PageView(
+          controller: pageController,
+          children: screens,
+          onPageChanged: onPageChanged,
+          physics: NeverScrollableScrollPhysics(),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          onTap: iconTapped,
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.date_range_rounded), label: 'Tracking'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.fitness_center), label: 'Workouts'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.food_bank), label: 'Nutrition')
+          ],
+          currentIndex: currIndex,
+          selectedItemColor: Colors.black,
+        ),
       ),
     );
   }
