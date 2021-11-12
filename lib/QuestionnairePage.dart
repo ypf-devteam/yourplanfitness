@@ -66,6 +66,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
     liquidController = LiquidController();
     super.initState();
     isSelected[0] = true;
+    firstAnswersCopy[0] = true;
   }
 
   Widget _buildDot(int index) {
