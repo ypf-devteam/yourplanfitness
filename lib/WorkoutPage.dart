@@ -15,45 +15,72 @@ class _WorkoutPageState extends State<WorkoutPage> {
     final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Workout page",
-          style: TextStyle(color: Colors.black),
+        appBar: AppBar(
+          centerTitle: true,
+          title: Text(
+            "Workout page",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
         ),
-        backgroundColor: Colors.white,
-      ),
-      body: ReorderableListView.builder(
-        scrollDirection: Axis.vertical,
-        itemCount: _items.length,
-        onReorder: (oldIndex, newIndex) => setState(() {
-          final index = newIndex > oldIndex ? newIndex - 1 : newIndex;
+        body: const MyStatefulWidget());
+  }
+}
 
-          final user = _items.removeAt(oldIndex);
-          _items.insert(index, user);
-        }),
-        itemBuilder: (context, index) {
-          return ListTile(
-            key: Key('$index'),
-            tileColor: _items[index].isOdd ? oddItemColor : evenItemColor,
-            leading: Text('Item ${_items[index]}'),
-            title: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Item ${_items[index]}'),
-                Text('Item ${_items[index]}'),
-              ],
-            ),
-            trailing: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Item ${_items[index]}'),
-                Text('Item ${_items[index]}'),
-              ],
-            ),
-          );
-        },
-      ),
+/// This is the stateful widget that the main application instantiates.
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+/// This is the private State class that goes with MyStatefulWidget.
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  final List<int> _items = List<int>.generate(5, (int index) => index);
+
+  @override
+  Widget build(BuildContext context) {
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
+    final Color oddItemColor = colorScheme.primary.withOpacity(0.05);
+    final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
+
+    return ReorderableListView(
+      scrollDirection: Axis.horizontal,
+      children: <Widget>[
+        for (int index = 0; index < _items.length; index++)
+          SizedBox(
+              width: MediaQuery.of(context).size.width,
+              key: Key('$index'),
+              child: ListTile(
+                key: Key('$index'),
+                tileColor: _items[index].isOdd ? oddItemColor : evenItemColor,
+                leading: Text('Item ${_items[index]}'),
+                title: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Item ${_items[index]}'),
+                    Text('Item ${_items[index]}'),
+                  ],
+                ),
+                trailing: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Item ${_items[index]}'),
+                    Text('Item ${_items[index]}'),
+                  ],
+                ),
+              )),
+      ],
+      onReorder: (int oldIndex, int newIndex) {
+        setState(() {
+          if (oldIndex < newIndex) {
+            newIndex -= 1;
+          }
+          final int item = _items.removeAt(oldIndex);
+          _items.insert(newIndex, item);
+        });
+      },
     );
   }
 }
