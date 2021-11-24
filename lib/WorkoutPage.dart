@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:your_plan_fitness/WorkoutWidget.dart';
 
 class WorkoutPage extends StatefulWidget {
   @override
@@ -48,29 +49,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return ReorderableListView(
       scrollDirection: Axis.horizontal,
       children: <Widget>[
-        for (int index = 0; index < _items.length; index++)
-          SizedBox(
-              width: MediaQuery.of(context).size.width,
-              key: Key('$index'),
-              child: ListTile(
-                key: Key('$index'),
-                tileColor: _items[index].isOdd ? oddItemColor : evenItemColor,
-                leading: Text('Item ${_items[index]}'),
-                title: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('Item ${_items[index]}'),
-                    Text('Item ${_items[index]}'),
-                  ],
-                ),
-                trailing: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('Item ${_items[index]}'),
-                    Text('Item ${_items[index]}'),
-                  ],
-                ),
-              )),
+        WorkoutWidget(
+          text: "yes!",
+          key: ValueKey("one"),
+        ),
+        WorkoutWidget(
+          text: "ye!",
+          key: ValueKey("on"),
+        ),
       ],
       onReorder: (int oldIndex, int newIndex) {
         setState(() {
