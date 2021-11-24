@@ -49,14 +49,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     return ReorderableListView(
       scrollDirection: Axis.horizontal,
       children: <Widget>[
-        WorkoutWidget(
-          text: "yes!",
-          key: ValueKey("one"),
-        ),
-        WorkoutWidget(
-          text: "ye!",
-          key: ValueKey("on"),
-        ),
+        for (int index = 0; index < _items.length; index++)
+          WorkoutWidget(
+            text: "yes!",
+            key: ValueKey(index),
+          ),
       ],
       onReorder: (int oldIndex, int newIndex) {
         setState(() {
