@@ -39,7 +39,6 @@ class MyStatefulWidget extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final List<int> _items = List<int>.generate(5, (int index) => index);
-  double _currentSliderValue = 20;
 
   @override
   Widget build(BuildContext context) {
@@ -56,18 +55,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             workoutName: "BOOTY BLASTER 6000",
             key: ValueKey(index),
           ),
-        Slider(
-            value: _currentSliderValue,
-            min: 0,
-            max: 100,
-            key: ValueKey("Slider Thing"),
-            divisions: 5,
-            label: _currentSliderValue.round().toString(),
-            onChanged: (double value) {
-              setState(() {
-                _currentSliderValue = value;
-              });
-            }),
       ],
       onReorder: (int oldIndex, int newIndex) {
         setState(() {
