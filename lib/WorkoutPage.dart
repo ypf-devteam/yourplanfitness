@@ -39,32 +39,55 @@ class MyStatefulWidget extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   final List<int> _items = List<int>.generate(5, (int index) => index);
+  double _currentSliderValue = 20;
 
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color oddItemColor = colorScheme.primary.withOpacity(0.05);
-    final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
+    var padding = MediaQuery.of(context).padding;
 
-    return ReorderableListView(
-      scrollDirection: Axis.horizontal,
+    return Column(
       children: <Widget>[
-        for (int index = 0; index < _items.length; index++)
-          WorkoutWidget(
-            dayText: "Day $index",
-            workoutName: "BOOTY BLASTER 6000",
-            key: ValueKey(index),
+        SizedBox(
+          height:
+              MediaQuery.of(context).size.height - padding.top - padding.bottom,
+          child: ReorderableListView(
+            scrollDirection: Axis.horizontal,
+            children: <Widget>[
+              for (int index = 0; index < _items.length; index++)
+                WorkoutWidget(
+                  dayText: "Day $index",
+                  workoutName: "BOOTY BLASTER 6000",
+                  key: ValueKey(index),
+                ),
+            ],
+            onReorder: (int oldIndex, int newIndex) {
+              setState(() {
+                if (oldIndex < newIndex) {
+                  newIndex -= 1;
+                }
+                final int item = _items.removeAt(oldIndex);
+                _items.insert(newIndex, item);
+              });
+            },
           ),
+        ),
+        SizedBox(
+          height: 30,
+          child: Slider(
+            value: _currentSliderValue,
+            min: 0,
+            max: 100,
+            divisions: 5,
+            label: _currentSliderValue.round().toString(),
+            onChanged: (double value) {
+              setState(() {
+                _currentSliderValue = value;
+              });
+            },
+          ),
+        )
       ],
-      onReorder: (int oldIndex, int newIndex) {
-        setState(() {
-          if (oldIndex < newIndex) {
-            newIndex -= 1;
-          }
-          final int item = _items.removeAt(oldIndex);
-          _items.insert(newIndex, item);
-        });
-      },
     );
   }
 }
