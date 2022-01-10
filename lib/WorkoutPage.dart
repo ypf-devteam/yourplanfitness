@@ -44,13 +44,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    var padding = MediaQuery.of(context).padding;
 
     return Column(
       children: <Widget>[
         SizedBox(
-          height:
-              MediaQuery.of(context).size.height - padding.top - padding.bottom,
+          height: MediaQuery.of(context).size.height - 192,
           child: ReorderableListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
@@ -74,6 +72,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         ),
         SizedBox(
           height: 30,
+          width: 400,
           child: Slider(
             value: _currentSliderValue,
             min: 0,
