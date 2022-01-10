@@ -19,7 +19,7 @@ class WorkoutWidget extends StatelessWidget {
               context, MaterialPageRoute(builder: (context) => InsideWorkout()))
         },
         child: Card(
-          margin: const EdgeInsets.fromLTRB(30, 7.5, 30, 7.5),
+          margin: const EdgeInsets.fromLTRB(30, 30, 30, 0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
