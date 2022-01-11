@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:your_plan_fitness/Exercise.dart';
 import 'package:your_plan_fitness/ExerciseWidget.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+List<Exercise> _items = [];
 
 class InsideWorkout extends StatefulWidget {
   @override
@@ -29,32 +33,37 @@ class MyStatefulWidget extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  final List<int> _items = List<int>.generate(5, (int index) => index);
+  var dbRef = FirebaseDatabase.instance.reference().child("Exercises");
+
+  void fillWorkouts() {
+    dbRef.once().then((DataSnapshot snapshot) {
+      Map<dynamic, dynamic> values = snapshot.value;
+      values.forEach((key, value) {
+        print(values);
+        setState(() {
+          _items.add(new Exercise(value['name'], value['category'],
+              value['groups'], value['type']));
+        });
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
-    return ReorderableListView(
+    if (_items.isEmpty) {
+      fillWorkouts();
+    }
+    return ListView(
       scrollDirection: Axis.vertical,
       children: <Widget>[
         for (int index = 0; index < _items.length; index++)
           ExcerciseWidget(
-            dayText: "Day $index",
-            workoutName: "BOOTY BLASTER 6000",
+            dayText: _items[index].name,
+            workoutName: _items[index].category,
             widgetHeight: MediaQuery.of(context).size.height / _items.length,
             key: ValueKey(index),
           ),
       ],
-      onReorder: (int oldIndex, int newIndex) {
-        setState(() {
-          if (oldIndex < newIndex) {
-            newIndex -= 1;
-          }
-          final int item = _items.removeAt(oldIndex);
-          _items.insert(newIndex, item);
-        });
-      },
     );
   }
 }

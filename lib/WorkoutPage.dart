@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:your_plan_fitness/Workout.dart';
 import 'package:your_plan_fitness/WorkoutWidget.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+List<Workout> _items = [];
 
 class WorkoutPage extends StatefulWidget {
   @override
@@ -7,14 +11,8 @@ class WorkoutPage extends StatefulWidget {
 }
 
 class _WorkoutPageState extends State<WorkoutPage> {
-  final List<int> _items = List<int>.generate(5, (int index) => index);
-
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-    final Color oddItemColor = colorScheme.primary.withOpacity(0.05);
-    final Color evenItemColor = colorScheme.primary.withOpacity(0.15);
-
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -38,36 +36,41 @@ class MyStatefulWidget extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  final List<int> _items = List<int>.generate(5, (int index) => index);
-  double _currentSliderValue = 20;
+  var dbRef = FirebaseDatabase.instance.reference().child("Workouts");
+
+  void fillWorkouts() {
+    dbRef.once().then((DataSnapshot snapshot) {
+      Map<dynamic, dynamic> values = snapshot.value;
+      values.forEach((key, value) {
+        print(values);
+        setState(() {
+          _items.add(new Workout(value['name'], "poggers", value['exerciseUID'],
+              value['difficulty']));
+        });
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final ColorScheme colorScheme = Theme.of(context).colorScheme;
-
+    print(_items.length);
+    if (_items.isEmpty) {
+      fillWorkouts();
+    }
     return Column(
       children: <Widget>[
         SizedBox(
           height: MediaQuery.of(context).size.height - 192,
-          child: ReorderableListView(
+          child: ListView(
             scrollDirection: Axis.horizontal,
             children: <Widget>[
               for (int index = 0; index < _items.length; index++)
                 WorkoutWidget(
-                  dayText: "Day $index",
-                  workoutName: "BOOTY BLASTER 6000",
+                  dayText: _items[index].name,
+                  workoutName: _items[index].difficulty,
                   key: ValueKey(index),
                 ),
             ],
-            onReorder: (int oldIndex, int newIndex) {
-              setState(() {
-                if (oldIndex < newIndex) {
-                  newIndex -= 1;
-                }
-                final int item = _items.removeAt(oldIndex);
-                _items.insert(newIndex, item);
-              });
-            },
           ),
         ),
       ],
