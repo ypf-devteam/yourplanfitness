@@ -39,16 +39,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     dbRef.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key, value) {
-        print(values);
         setState(() {
           _items.add(new Exercise(
               value['name'],
               value['category'],
               value['groups'],
               value['type'],
-              value['sets'],
-              value['reps'],
-              value['weight']));
+              int.parse(value['sets']),
+              int.parse(value['reps']),
+              double.parse(value['weight'])));
         });
       });
     });
@@ -58,7 +57,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     if (_items.isEmpty) {
       fillWorkouts();
+      print("HELLO WORLD");
       print(_items);
+      print("BYE WORLD");
     }
     return ListView(
       scrollDirection: Axis.vertical,

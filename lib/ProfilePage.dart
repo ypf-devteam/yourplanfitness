@@ -36,7 +36,7 @@ class __DummyButtonState extends State<_DummyButton> {
       'type': "push",
       'sets': "1",
       'reps': "2",
-      'weight': "50"
+      'weight': "50.50"
     });
   }
 
