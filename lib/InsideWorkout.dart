@@ -41,8 +41,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       values.forEach((key, value) {
         print(values);
         setState(() {
-          _items.add(new Exercise(value['name'], value['category'],
-              value['groups'], value['type']));
+          _items.add(new Exercise(
+              value['name'],
+              value['category'],
+              value['groups'],
+              value['type'],
+              value['sets'],
+              value['reps'],
+              value['weight']));
         });
       });
     });
@@ -52,6 +58,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     if (_items.isEmpty) {
       fillWorkouts();
+      print(_items);
     }
     return ListView(
       scrollDirection: Axis.vertical,

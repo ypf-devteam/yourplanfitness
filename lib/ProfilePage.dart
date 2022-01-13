@@ -33,7 +33,10 @@ class __DummyButtonState extends State<_DummyButton> {
       'name': "Pushups",
       'category': "secondary",
       'groups': "shoulders, chest",
-      'type': "push"
+      'type': "push",
+      'sets': "1",
+      'reps': "2",
+      'weight': "50"
     });
   }
 
