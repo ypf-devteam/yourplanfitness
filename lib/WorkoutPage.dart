@@ -44,9 +44,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 
   void updateWorkouts() {
-    for (int i = 0; i < _items.length; i++) {
-      _items.remove(i);
-    }
+    _items.clear();
     fillWorkouts();
   }
 
@@ -56,7 +54,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     var listen = FirebaseDatabase.instance
         .reference()
         .child("Workouts")
-        .onChildChanged
+        .onValue
         .listen((event) {
       print("YESSSSSSSSSSS");
       updateWorkouts();
@@ -78,10 +76,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    print(_items.length);
-    if (_items.isEmpty) {
-      fillWorkouts();
-    }
     return Column(
       children: <Widget>[
         SizedBox(
