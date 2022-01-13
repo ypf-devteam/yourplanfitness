@@ -62,13 +62,17 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   }
 
   void fillWorkouts() {
+    List<String> muscleGroups = [];
     dbRef.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
       values.forEach((key, value) {
         print(values);
         setState(() {
-          _items.add(new Workout(value['name'], "poggers", value['exerciseUID'],
-              value['difficulty']));
+          for (int i = 0; i < value['muscleGroups'].length; i++) {
+            muscleGroups.add(value['muscleGroups'][i]);
+          }
+          _items.add(new Workout(
+              value['name'], "poggers", muscleGroups, value['difficulty']));
         });
       });
     });

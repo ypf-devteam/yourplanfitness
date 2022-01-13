@@ -42,12 +42,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         setState(() {
           _items.add(new Exercise(
               value['name'],
-              value['category'],
-              value['groups'],
-              value['type'],
+              value['muscleGroups'],
               int.parse(value['sets']),
               int.parse(value['reps']),
-              double.parse(value['weight'])));
+              double.parse(value['pastWeight']),
+              int.parse(value['difficulty'])));
         });
       });
     });
@@ -66,9 +65,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       children: <Widget>[
         for (int index = 0; index < _items.length; index++)
           ExcerciseWidget(
-            dayText: _items[index].name,
-            workoutName: _items[index].category,
-            widgetHeight: MediaQuery.of(context).size.height / _items.length,
+            exerciseName: _items[index].name,
+            sets: _items[index].sets,
+            reps: _items[index].reps,
+            weight: _items[index].pastWeight,
+            widgetHeight: MediaQuery.of(context).size.height /
+                (_items.length /
+                    2), //constant growing makes the cards bigger, smaller if smaller
             key: ValueKey(index),
           ),
       ],
