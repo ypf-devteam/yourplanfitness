@@ -26,17 +26,13 @@ class _DummyButton extends StatefulWidget {
 }
 
 class __DummyButtonState extends State<_DummyButton> {
-  var dbRef = FirebaseDatabase.instance.reference().child("Exercises");
+  var dbRef = FirebaseDatabase.instance.reference().child("Workouts");
 
   void makeWorkout() {
     dbRef.push().set({
-      'name': "Pushups",
-      'category': "secondary",
-      'groups': "shoulders, chest",
-      'type': "push",
-      'sets': "1",
-      'reps': "2",
-      'weight': "50.50"
+      'name': "pull",
+      'exerciseUID': "secondary",
+      'difficulty': "yes",
     });
   }
 

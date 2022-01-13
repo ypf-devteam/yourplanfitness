@@ -38,6 +38,31 @@ class MyStatefulWidget extends StatefulWidget {
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   var dbRef = FirebaseDatabase.instance.reference().child("Workouts");
 
+  void initState() {
+    workoutListener();
+    super.initState();
+  }
+
+  void updateWorkouts() {
+    for (int i = 0; i < _items.length; i++) {
+      _items.remove(i);
+    }
+    fillWorkouts();
+  }
+
+  void workoutListener() {
+    // ignore: unused_local_variable
+    // ignore: cancel_subscriptions
+    var listen = FirebaseDatabase.instance
+        .reference()
+        .child("Workouts")
+        .onChildChanged
+        .listen((event) {
+      print("YESSSSSSSSSSS");
+      updateWorkouts();
+    });
+  }
+
   void fillWorkouts() {
     dbRef.once().then((DataSnapshot snapshot) {
       Map<dynamic, dynamic> values = snapshot.value;
