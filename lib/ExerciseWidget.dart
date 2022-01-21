@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:your_plan_fitness/ExercisePopupCard.dart';
+import 'package:your_plan_fitness/custom_rect_tween.dart';
+import 'package:your_plan_fitness/hero_dialog_route.dart';
 
 import 'InsideWorkout.dart';
 
@@ -9,6 +12,7 @@ class ExcerciseWidget extends StatelessWidget {
   final double weight;
   final double widgetHeight;
   final Key key;
+  final String _heroAddTodo = 'add-todo-hero';
 
   const ExcerciseWidget(
       {this.exerciseName,
@@ -60,7 +64,7 @@ class ExcerciseWidget extends StatelessWidget {
                           style: TextStyle(fontSize: 18),
                         ),
                         Text(
-                          "0",
+                          "2",
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 16),
                         )
@@ -101,7 +105,26 @@ class ExcerciseWidget extends StatelessWidget {
               ],
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(HeroDialogRoute(builder: (context) {
+                  return ExercisePopupCard(
+                    setAmounts: sets,
+                    pastWeight: weight,
+                  );
+                }));
+                Hero(
+                  tag: _heroAddTodo,
+                  createRectTween: (begin, end) {
+                    return CustomRectTween(begin: begin, end: end);
+                  },
+                  child: Material(
+                    color: Colors.white,
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32)),
+                  ),
+                );
+              },
               child: Icon(Icons.add, color: Colors.white),
               style: ElevatedButton.styleFrom(
                 shape: CircleBorder(),
