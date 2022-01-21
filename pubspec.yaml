@@ -62,6 +62,9 @@ flutter:
     - assets/images/girl-barbell-squat.jpg
     - assets/images/asian-guy-mountain-climbers.jpg
     - assets/images/info_icon.png
+    - assets/images/bench-press.jpg
+    - assets/images/lat-pull-down.jpg
+    - assets/images/db-bench-press.jpg
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -71,8 +71,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           for (int i = 0; i < value['muscleGroups'].length; i++) {
             muscleGroups.add(value['muscleGroups'][i]);
           }
-          _items.add(new Workout(
-              value['name'], "poggers", muscleGroups, value['difficulty']));
+          _items.add(new Workout(value['name'], "poggers", muscleGroups,
+              value['difficulty'], int.parse(value["type"])));
         });
       });
     });
@@ -91,6 +91,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 WorkoutWidget(
                   dayText: _items[index].name,
                   workoutName: _items[index].difficulty,
+                  workoutType: _items[index].type,
                   key: ValueKey(index),
                 ),
             ],

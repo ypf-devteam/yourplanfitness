@@ -56,9 +56,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     if (_items.isEmpty) {
       fillWorkouts();
-      print("HELLO WORLD");
-      print(_items);
-      print("BYE WORLD");
     }
     return ListView(
       scrollDirection: Axis.vertical,

@@ -5,9 +5,14 @@ import 'InsideWorkout.dart';
 class WorkoutWidget extends StatelessWidget {
   final String dayText;
   final String workoutName;
+  final int workoutType;
   final Key key;
+  final List<String> backgroundImages = [
+    "assets/images/bench-press.jpg",
+    "assets/images/lat-pull-down.jpg"
+  ];
 
-  const WorkoutWidget({this.dayText, this.workoutName, this.key})
+  WorkoutWidget({this.dayText, this.workoutName, this.workoutType, this.key})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -19,20 +24,36 @@ class WorkoutWidget extends StatelessWidget {
               context, MaterialPageRoute(builder: (context) => InsideWorkout()))
         },
         child: Card(
-          margin: const EdgeInsets.fromLTRB(30, 30, 30, 0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                dayText,
-                key: key,
-                textAlign: TextAlign.center,
+          semanticContainer: true,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          child: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: workoutType < backgroundImages.length
+                    ? AssetImage(backgroundImages[workoutType])
+                    : AssetImage(backgroundImages[0]),
+                fit: BoxFit.cover,
+                alignment: Alignment.topCenter,
               ),
-              Text(
-                workoutName,
-                textAlign: TextAlign.center,
-              ),
-            ],
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  dayText,
+                  key: key,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  workoutName,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
         ),
       ),
